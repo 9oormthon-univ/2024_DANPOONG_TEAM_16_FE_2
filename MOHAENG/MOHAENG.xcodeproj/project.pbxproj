@@ -7,14 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F14B3B72CEB3C1E0080CACA /* CourseResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F14B3B62CEB3C1E0080CACA /* CourseResultView.swift */; };
+		8F14B3BB2CEB49540080CACA /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F14B3BA2CEB49540080CACA /* MapView.swift */; };
+		8F14B3BE2CEB49E80080CACA /* KakaoMapsSDK-SPM in Frameworks */ = {isa = PBXBuildFile; productRef = 8F14B3BD2CEB49E80080CACA /* KakaoMapsSDK-SPM */; };
+		8F14B3C02CEB4A3F0080CACA /* MapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F14B3BF2CEB4A3F0080CACA /* MapCoordinator.swift */; };
 		8F25A9D22CEAFA3200223ADD /* MOHAENGApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F25A9D12CEAFA3200223ADD /* MOHAENGApp.swift */; };
 		8F25A9D42CEAFA3200223ADD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F25A9D32CEAFA3200223ADD /* ContentView.swift */; };
 		8F25A9D62CEAFA3600223ADD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F25A9D52CEAFA3600223ADD /* Assets.xcassets */; };
 		8F25A9D92CEAFA3600223ADD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F25A9D82CEAFA3600223ADD /* Preview Assets.xcassets */; };
 		8F60329A2CEB33C5000D2B55 /* Bundle+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6032992CEB33C5000D2B55 /* Bundle+.swift */; };
+		8F648C2E2CEB58820045BDDC /* DaysComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F648C2D2CEB58820045BDDC /* DaysComponent.swift */; };
+		8F648C302CEB58AE0045BDDC /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F648C2F2CEB58AE0045BDDC /* Color+.swift */; };
+		8F648C322CEC46600045BDDC /* CourseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F648C312CEC46600045BDDC /* CourseListView.swift */; };
+		8F648C342CEC495B0045BDDC /* CourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F648C332CEC495B0045BDDC /* CourseView.swift */; };
+		8F648C382CEC5FAA0045BDDC /* Button+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F648C372CEC5FAA0045BDDC /* Button+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8F14B3B62CEB3C1E0080CACA /* CourseResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseResultView.swift; sourceTree = "<group>"; };
+		8F14B3BA2CEB49540080CACA /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		8F14B3BF2CEB4A3F0080CACA /* MapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCoordinator.swift; sourceTree = "<group>"; };
 		8F25A9CE2CEAFA3200223ADD /* MOHAENG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MOHAENG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F25A9D12CEAFA3200223ADD /* MOHAENGApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MOHAENGApp.swift; sourceTree = "<group>"; };
 		8F25A9D32CEAFA3200223ADD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -23,6 +35,11 @@
 		8F25A9DF2CEAFA8A00223ADD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8F6032972CEB3222000D2B55 /* Secret.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secret.xcconfig; sourceTree = "<group>"; };
 		8F6032992CEB33C5000D2B55 /* Bundle+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+.swift"; sourceTree = "<group>"; };
+		8F648C2D2CEB58820045BDDC /* DaysComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysComponent.swift; sourceTree = "<group>"; };
+		8F648C2F2CEB58AE0045BDDC /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
+		8F648C312CEC46600045BDDC /* CourseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseListView.swift; sourceTree = "<group>"; };
+		8F648C332CEC495B0045BDDC /* CourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseView.swift; sourceTree = "<group>"; };
+		8F648C372CEC5FAA0045BDDC /* Button+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,12 +47,42 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F14B3BE2CEB49E80080CACA /* KakaoMapsSDK-SPM in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8F14B3B42CEB3B450080CACA /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				8F14B3B92CEB49470080CACA /* Map */,
+				8F14B3B52CEB3C080080CACA /* Course */,
+				8F648C2C2CEB575E0045BDDC /* Custom */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		8F14B3B52CEB3C080080CACA /* Course */ = {
+			isa = PBXGroup;
+			children = (
+				8F14B3B62CEB3C1E0080CACA /* CourseResultView.swift */,
+				8F648C312CEC46600045BDDC /* CourseListView.swift */,
+				8F648C332CEC495B0045BDDC /* CourseView.swift */,
+			);
+			path = Course;
+			sourceTree = "<group>";
+		};
+		8F14B3B92CEB49470080CACA /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				8F14B3BA2CEB49540080CACA /* MapView.swift */,
+				8F14B3BF2CEB4A3F0080CACA /* MapCoordinator.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
 		8F25A9C52CEAFA3200223ADD = {
 			isa = PBXGroup;
 			children = (
@@ -58,8 +105,9 @@
 				8F6032972CEB3222000D2B55 /* Secret.xcconfig */,
 				8F25A9DF2CEAFA8A00223ADD /* Info.plist */,
 				8F25A9D12CEAFA3200223ADD /* MOHAENGApp.swift */,
-				8F6032982CEB33BC000D2B55 /* Extension */,
 				8F25A9D32CEAFA3200223ADD /* ContentView.swift */,
+				8F14B3B42CEB3B450080CACA /* Presentation */,
+				8F6032982CEB33BC000D2B55 /* Extension */,
 				8F25A9D52CEAFA3600223ADD /* Assets.xcassets */,
 				8F25A9D72CEAFA3600223ADD /* Preview Content */,
 			);
@@ -78,8 +126,18 @@
 			isa = PBXGroup;
 			children = (
 				8F6032992CEB33C5000D2B55 /* Bundle+.swift */,
+				8F648C2F2CEB58AE0045BDDC /* Color+.swift */,
+				8F648C372CEC5FAA0045BDDC /* Button+.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		8F648C2C2CEB575E0045BDDC /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				8F648C2D2CEB58820045BDDC /* DaysComponent.swift */,
+			);
+			path = Custom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -98,6 +156,9 @@
 			dependencies = (
 			);
 			name = MOHAENG;
+			packageProductDependencies = (
+				8F14B3BD2CEB49E80080CACA /* KakaoMapsSDK-SPM */,
+			);
 			productName = MOHAENG;
 			productReference = 8F25A9CE2CEAFA3200223ADD /* MOHAENG.app */;
 			productType = "com.apple.product-type.application";
@@ -126,6 +187,9 @@
 				Base,
 			);
 			mainGroup = 8F25A9C52CEAFA3200223ADD;
+			packageReferences = (
+				8F14B3BC2CEB49E80080CACA /* XCRemoteSwiftPackageReference "KakaoMapsSDK-SPM" */,
+			);
 			productRefGroup = 8F25A9CF2CEAFA3200223ADD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -152,8 +216,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F14B3B72CEB3C1E0080CACA /* CourseResultView.swift in Sources */,
+				8F648C302CEB58AE0045BDDC /* Color+.swift in Sources */,
 				8F60329A2CEB33C5000D2B55 /* Bundle+.swift in Sources */,
+				8F648C382CEC5FAA0045BDDC /* Button+.swift in Sources */,
+				8F14B3BB2CEB49540080CACA /* MapView.swift in Sources */,
+				8F14B3C02CEB4A3F0080CACA /* MapCoordinator.swift in Sources */,
 				8F25A9D42CEAFA3200223ADD /* ContentView.swift in Sources */,
+				8F648C322CEC46600045BDDC /* CourseListView.swift in Sources */,
+				8F648C342CEC495B0045BDDC /* CourseView.swift in Sources */,
+				8F648C2E2CEB58820045BDDC /* DaysComponent.swift in Sources */,
 				8F25A9D22CEAFA3200223ADD /* MOHAENGApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -368,6 +440,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8F14B3BC2CEB49E80080CACA /* XCRemoteSwiftPackageReference "KakaoMapsSDK-SPM" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakao-mapsSDK/KakaoMapsSDK-SPM.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.12.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8F14B3BD2CEB49E80080CACA /* KakaoMapsSDK-SPM */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8F14B3BC2CEB49E80080CACA /* XCRemoteSwiftPackageReference "KakaoMapsSDK-SPM" */;
+			productName = "KakaoMapsSDK-SPM";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8F25A9C62CEAFA3200223ADD /* Project object */;
 }
