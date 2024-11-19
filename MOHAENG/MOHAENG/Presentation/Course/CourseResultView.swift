@@ -49,7 +49,7 @@ struct CourseResultView: View {
                         .onDisappear{
                             self.draw = false
                         }
-                        .frame(height: geometry.size.height * 0.35)
+                        .frame(height: geometry.size.height * 0.3)
                     
                     DaysComponent(
                         selectedDay: $selectedDay,
@@ -58,8 +58,10 @@ struct CourseResultView: View {
                         defalutColor: defalutColor,
                         fontColor: fontColor
                     )
+                    .padding(.leading, 30)
+                    .padding(.top, 10)
                     
-                    
+                    CourseListView()
                 }
             }
         }
