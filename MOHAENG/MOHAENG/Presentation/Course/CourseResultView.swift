@@ -24,44 +24,56 @@ struct CourseResultView: View {
     
     private let semiboldFontSize: CGFloat = 20
     private let mediumFontSize: CGFloat = 18
+    private let floatingFontSize: CGFloat = 16
     
     var body: some View {
         NavigationStack {
-            
             GeometryReader { geometry in
-                VStack {
-                    Image(uiImage: .mountain)
-                    HStack {
-                        Text(place)
-                            .font(.system(size: semiboldFontSize, weight: .semibold))
-                        Text(period)
-                            .font(.system(size: semiboldFontSize, weight: .semibold))
-                    }
-                    .padding(3)
-                    Text(mention)
-                        .font(.system(size: mediumFontSize, weight: .medium))
+                ZStack {
+                    VStack {
+                        Image(uiImage: .mountain)
+                        HStack {
+                            Text(place)
+                                .font(.system(size: semiboldFontSize, weight: .semibold))
+                            Text(period)
+                                .font(.system(size: semiboldFontSize, weight: .semibold))
+                        }
                         .padding(3)
+                        Text(mention)
+                            .font(.system(size: mediumFontSize, weight: .medium))
+                            .padding(3)
+                        
+                        MapView(draw: $draw)
+                            .onAppear {
+                                self.draw = true
+                            }
+                            .onDisappear{
+                                self.draw = false
+                            }
+                            .frame(height: geometry.size.height * 0.3)
+                        
+                        DaysComponent(
+                            selectedDay: $selectedDay,
+                            daysList: daysList,
+                            backgroundColor: backgroundColor,
+                            defalutColor: defalutColor,
+                            fontColor: fontColor
+                        )
+                        .padding(.leading, 30)
+                        .padding(.top, 10)
+                        
+                        CourseListView()
+                    }
                     
-                    MapView(draw: $draw)
-                        .onAppear {
-                            self.draw = true
-                        }
-                        .onDisappear{
-                            self.draw = false
-                        }
-                        .frame(height: geometry.size.height * 0.3)
-                    
-                    DaysComponent(
-                        selectedDay: $selectedDay,
-                        daysList: daysList,
-                        backgroundColor: backgroundColor,
-                        defalutColor: defalutColor,
-                        fontColor: fontColor
-                    )
-                    .padding(.leading, 30)
-                    .padding(.top, 10)
-                    
-                    CourseListView()
+                    Button {
+                        
+                    } label: {
+                        Text("내 코스로 등록하기")
+                            .font(.system(size: floatingFontSize, weight: .semibold))
+                    }
+                    .buttonStyle(InsetRoundButton())
+                    .padding(.top, geometry.size.height * 0.8)
+
                 }
             }
         }
