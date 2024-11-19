@@ -17,7 +17,7 @@ struct MOHAENGApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CourseResultView()
         }
     }
     
