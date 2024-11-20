@@ -14,7 +14,7 @@ struct DetailTitleView: View {
     private let start = "2024/11/23"
     private let end = "2024/11/25"
     
-    private let titleFontSize: CGFloat = 20
+    private let titleFontSize: CGFloat = 24
     private let fontSize: CGFloat = 16
     
     var body: some View {
@@ -28,14 +28,20 @@ struct DetailTitleView: View {
                     .font(.system(size: titleFontSize, weight: .semibold))
                 HStack {
                     Image(uiImage: .mapPin)
+                        .resizable()
+                        .frame(width: 20, height: 20)
                     Text(place)
                         .font(.system(size: fontSize))
                 }
                 HStack {
                     Image(uiImage: .calendar)
+                        .resizable()
+                        .frame(width: 20, height: 20)
                     Text("\(start) - \(end)")
-                        .font(.system(size: fontSize))
+                            .font(.system(size: fontSize))
                 }
+                
+                DetailNotificationView(list: ["- 고령자를 위한 이동 편의"])
             })
             .frame(width: .infinity)
             
@@ -47,5 +53,5 @@ struct DetailTitleView: View {
 }
 
 #Preview {
-    DetailTitleView()
+    DetailResultView()
 }
