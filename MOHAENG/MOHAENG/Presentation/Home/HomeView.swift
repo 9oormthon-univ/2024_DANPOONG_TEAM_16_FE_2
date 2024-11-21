@@ -9,6 +9,8 @@ import SwiftUI
 
 struct HomeView: View {
     
+    @State var isOnboarding: Bool = false
+    
     private let semiboldFontSize: CGFloat = 20
     
     @State private var courseList: [String] = ["1", "2", "3"]
@@ -20,7 +22,7 @@ struct HomeView: View {
             ZStack {
                 Image(uiImage: .createButton)
                 Button {
-                    
+                    self.isOnboarding.toggle()
                 } label: {
                     Text("코스 만들기")
                 }
@@ -63,6 +65,12 @@ struct HomeView: View {
             }
             
             Spacer()
+        }
+        .fullScreenCover(isPresented: $isOnboarding, content: {
+            OnboardingView()
+        })
+        .transaction { transaction in
+            transaction.disablesAnimations = true
         }
     }
 }

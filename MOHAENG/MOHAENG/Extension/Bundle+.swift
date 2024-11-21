@@ -16,5 +16,9 @@ extension Bundle {
     var WEATHER_KEY: String? {
         return infoDictionary?["WEATHER_KEY"] as? String
     }
+
+    var ONBOARDING_URL: String? {
+        return infoDictionary?["ONBOARDING_URL"] as? String
+    }
     
 }
