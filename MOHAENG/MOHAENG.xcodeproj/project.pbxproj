@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8F13DDCE2CEDA0BE00CE488D /* DetailNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F13DDCD2CEDA0BE00CE488D /* DetailNotificationView.swift */; };
+		8F13DDD12CEF047800CE488D /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F13DDD02CEF047800CE488D /* Weather.swift */; };
 		8F14B3B72CEB3C1E0080CACA /* CourseResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F14B3B62CEB3C1E0080CACA /* CourseResultView.swift */; };
 		8F14B3BB2CEB49540080CACA /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F14B3BA2CEB49540080CACA /* MapView.swift */; };
 		8F14B3BE2CEB49E80080CACA /* KakaoMapsSDK-SPM in Frameworks */ = {isa = PBXBuildFile; productRef = 8F14B3BD2CEB49E80080CACA /* KakaoMapsSDK-SPM */; };
@@ -34,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		8F13DDCD2CEDA0BE00CE488D /* DetailNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNotificationView.swift; sourceTree = "<group>"; };
+		8F13DDD02CEF047800CE488D /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		8F14B3B62CEB3C1E0080CACA /* CourseResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseResultView.swift; sourceTree = "<group>"; };
 		8F14B3BA2CEB49540080CACA /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		8F14B3BF2CEB4A3F0080CACA /* MapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCoordinator.swift; sourceTree = "<group>"; };
@@ -72,6 +74,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8F13DDCF2CEF046C00CE488D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8F13DDD02CEF047800CE488D /* Weather.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		8F14B3B42CEB3B450080CACA /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +135,7 @@
 				8F25A9DF2CEAFA8A00223ADD /* Info.plist */,
 				8F25A9D12CEAFA3200223ADD /* MOHAENGApp.swift */,
 				8F25A9D32CEAFA3200223ADD /* ContentView.swift */,
+				8F13DDCF2CEF046C00CE488D /* Model */,
 				8F14B3B42CEB3B450080CACA /* Presentation */,
 				8F6032982CEB33BC000D2B55 /* Extension */,
 				8F25A9D52CEAFA3600223ADD /* Assets.xcassets */,
@@ -272,6 +283,7 @@
 				8F648C382CEC5FAA0045BDDC /* Button+.swift in Sources */,
 				8F648C3F2CEC78110045BDDC /* DetailWeatherView.swift in Sources */,
 				8F648C3B2CEC76830045BDDC /* DetailResultView.swift in Sources */,
+				8F13DDD12CEF047800CE488D /* Weather.swift in Sources */,
 				8F14B3BB2CEB49540080CACA /* MapView.swift in Sources */,
 				8F14B3C02CEB4A3F0080CACA /* MapCoordinator.swift in Sources */,
 				8F25A9D42CEAFA3200223ADD /* ContentView.swift in Sources */,
