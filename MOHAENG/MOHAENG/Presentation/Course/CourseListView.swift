@@ -30,7 +30,7 @@ struct CourseListView: View {
                         Image(uiImage: .dotLine)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(height: 60)
+                            .frame(height: 40)
                     }
                     CourseView()
                         .cornerRadius(15)
