@@ -11,6 +11,8 @@
 		8F13DDD12CEF047800CE488D /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F13DDD02CEF047800CE488D /* Weather.swift */; };
 		8F13DDD42CEF08DD00CE488D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F13DDD32CEF08DD00CE488D /* HomeView.swift */; };
 		8F13DDD62CEF13C500CE488D /* HomeCourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F13DDD52CEF13C500CE488D /* HomeCourseView.swift */; };
+		8F13DDE62CEF4EAA00CE488D /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F13DDE52CEF4EAA00CE488D /* WebView.swift */; };
+		8F13DDE82CEF501D00CE488D /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F13DDE72CEF501D00CE488D /* OnboardingView.swift */; };
 		8F14B3B72CEB3C1E0080CACA /* CourseResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F14B3B62CEB3C1E0080CACA /* CourseResultView.swift */; };
 		8F14B3BB2CEB49540080CACA /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F14B3BA2CEB49540080CACA /* MapView.swift */; };
 		8F14B3BE2CEB49E80080CACA /* KakaoMapsSDK-SPM in Frameworks */ = {isa = PBXBuildFile; productRef = 8F14B3BD2CEB49E80080CACA /* KakaoMapsSDK-SPM */; };
@@ -40,6 +42,8 @@
 		8F13DDD02CEF047800CE488D /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		8F13DDD32CEF08DD00CE488D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		8F13DDD52CEF13C500CE488D /* HomeCourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCourseView.swift; sourceTree = "<group>"; };
+		8F13DDE52CEF4EAA00CE488D /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		8F13DDE72CEF501D00CE488D /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		8F14B3B62CEB3C1E0080CACA /* CourseResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseResultView.swift; sourceTree = "<group>"; };
 		8F14B3BA2CEB49540080CACA /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		8F14B3BF2CEB4A3F0080CACA /* MapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCoordinator.swift; sourceTree = "<group>"; };
@@ -91,6 +95,7 @@
 			children = (
 				8F13DDD32CEF08DD00CE488D /* HomeView.swift */,
 				8F13DDD52CEF13C500CE488D /* HomeCourseView.swift */,
+				8F13DDE72CEF501D00CE488D /* OnboardingView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -180,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				8F648C2D2CEB58820045BDDC /* DaysComponent.swift */,
+				8F13DDE52CEF4EAA00CE488D /* WebView.swift */,
 				8F648C4B2CEC89450045BDDC /* SegmentedControl.swift */,
 				8F648C462CEC79520045BDDC /* BottomSheet */,
 			);
@@ -293,6 +299,7 @@
 				8F648C4A2CEC88F50045BDDC /* DetailTitleView.swift in Sources */,
 				8F60329A2CEB33C5000D2B55 /* Bundle+.swift in Sources */,
 				8F648C4C2CEC89450045BDDC /* SegmentedControl.swift in Sources */,
+				8F13DDE62CEF4EAA00CE488D /* WebView.swift in Sources */,
 				8F13DDD62CEF13C500CE488D /* HomeCourseView.swift in Sources */,
 				8F648C452CEC79490045BDDC /* CustomCorner.swift in Sources */,
 				8F648C3D2CEC78090045BDDC /* DetailBottomSheetView.swift in Sources */,
@@ -301,6 +308,7 @@
 				8F648C3B2CEC76830045BDDC /* DetailResultView.swift in Sources */,
 				8F13DDD12CEF047800CE488D /* Weather.swift in Sources */,
 				8F14B3BB2CEB49540080CACA /* MapView.swift in Sources */,
+				8F13DDE82CEF501D00CE488D /* OnboardingView.swift in Sources */,
 				8F14B3C02CEB4A3F0080CACA /* MapCoordinator.swift in Sources */,
 				8F25A9D42CEAFA3200223ADD /* ContentView.swift in Sources */,
 				8F648C322CEC46600045BDDC /* CourseListView.swift in Sources */,
