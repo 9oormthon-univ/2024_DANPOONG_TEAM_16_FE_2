@@ -21,4 +21,8 @@ extension Bundle {
         return infoDictionary?["BASE_URL"] as? String
     }
     
+    var WEATHER_URL: String? {
+        return infoDictionary?["WEATHER_URL"] as? String
+    }
+    
 }
