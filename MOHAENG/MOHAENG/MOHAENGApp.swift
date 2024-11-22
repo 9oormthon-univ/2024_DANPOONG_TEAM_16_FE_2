@@ -48,6 +48,7 @@ struct MOHAENGApp: App {
             switch result {
             case .success(let response):
                 if response == "유저가 존재하지 않습니다\n" {
+                    registerUUID()
                 } else {
                     self.isCheck = true
                 }
@@ -55,6 +56,17 @@ struct MOHAENGApp: App {
                 dump(error.localizedDescription)
             }
 
+        }
+    }
+    
+    private func registerUUID() {
+        MoyaManager.shared.registerUUID(UUID: self.deviceUUID) { result in
+            switch result {
+            case .success(let response):
+                self.isCheck = true
+            case .failure(let error):
+                dump(error.localizedDescription)
+            }
         }
     }
     
