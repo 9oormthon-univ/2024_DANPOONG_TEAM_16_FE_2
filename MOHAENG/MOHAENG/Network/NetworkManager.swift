@@ -11,6 +11,7 @@ import Moya
 enum NetworkManager {
     
     case getWeather(lat: Double, lon: Double)
+    case getUserExist(UUID: String)
     
 }
 
@@ -30,6 +31,8 @@ extension NetworkManager: TargetType {
         switch self {
         case .getWeather(lat: _, lon: _):
             return "onecall"
+        case .getUserExist(UUID: _):
+            return "api/v1/user/exist"
         }
     }
     
@@ -51,6 +54,14 @@ extension NetworkManager: TargetType {
             ]
             
             return .requestParameters(parameters: params, encoding: URLEncoding.queryString)
+            
+        case let .getUserExist(UUID):
+            let params: [String: String] = [
+                "uuid": UUID
+            ]
+            
+            return .requestParameters(parameters: params, encoding: URLEncoding.queryString)
+            
         }
     }
     

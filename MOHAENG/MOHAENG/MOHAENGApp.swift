@@ -11,13 +11,30 @@ import KakaoMapsSDK
 @main
 struct MOHAENGApp: App {
     
+    @State private var isCheck: Bool = false
+    
+    private let deviceUUID = UIDevice.current.identifierForVendor!.uuidString
+    
     init() {
         setup()
     }
     
     var body: some Scene {
         WindowGroup {
-            CourseResultView()
+            if !isCheck {
+                VStack {
+                    Image(uiImage: .splash)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .clipped()
+                        .edgesIgnoringSafeArea(.all)
+                }
+                .onAppear(perform: {
+                    checkUUID()
+                })
+            } else {
+                HomeView()
+            }
         }
     }
     
@@ -25,4 +42,20 @@ struct MOHAENGApp: App {
         guard let KAKAO_API_KEY = Bundle.main.KAKAO_API_KEY else { return }
         SDKInitializer.InitSDK(appKey: KAKAO_API_KEY)
     }
+    
+    private func checkUUID() {
+        MoyaManager.shared.checkUUID(UUID: self.deviceUUID) { result in
+            switch result {
+            case .success(let response):
+                if response == "유저가 존재하지 않습니다\n" {
+                } else {
+                    self.isCheck = true
+                }
+            case .failure(let error):
+                dump(error.localizedDescription)
+            }
+
+        }
+    }
+    
 }
