@@ -23,16 +23,16 @@ struct WeatherDTO: Codable {
     
 }
 
-struct Daily: Codable {
+struct Daily: Codable, Hashable, Equatable {
     
-    let dt: Int
+    var dt: Int
     let sunrise: Int
     let sunset: Int
     let moonrise: Int
     let moonset: Int
     let moonPhase: Double
     let summary: String
-    let temp: Temp
+    var temp: Temp
     let feelsLike: FeelsLike
     let pressure: Int
     let humidity: Int
@@ -40,7 +40,7 @@ struct Daily: Codable {
     let windSpeed: Double
     let windDeg: Int
     let windGust: Double
-    let weather: [Weather]
+    var weather: [Weather]
     let clouds: Int
     let pop: Double
     let uvi: Double
@@ -62,18 +62,18 @@ struct Daily: Codable {
     
 }
 
-struct Temp: Codable {
+struct Temp: Codable, Hashable, Equatable {
     
-    let day: Double
-    let min: Double
-    let max: Double
+    var day: Double
+    var min: Double
+    var max: Double
     let night: Double
     let eve: Double
     let morn: Double
     
 }
 
-struct FeelsLike: Codable {
+struct FeelsLike: Codable, Hashable, Equatable {
     
     let day: Double
     let night: Double
@@ -82,10 +82,10 @@ struct FeelsLike: Codable {
     
 }
 
-struct Weather: Codable {
+struct Weather: Codable, Hashable, Equatable {
     
     let id: Int
-    let main: String
+    var main: String
     let description: String
     let icon: String
     
