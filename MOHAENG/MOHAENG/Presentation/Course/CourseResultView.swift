@@ -10,6 +10,7 @@ import SwiftUI
 struct CourseResultView: View {
     
     @State private var draw: Bool = true
+    @State private var isSaving: Bool = false
     @State var selectedDay: Int = 0
     
     private let place = "속초"
@@ -66,7 +67,7 @@ struct CourseResultView: View {
                     }
                     
                     Button {
-                        
+                        self.isSaving.toggle()
                     } label: {
                         Text("내 코스로 등록하기")
                             .font(.system(size: floatingFontSize, weight: .semibold))
@@ -77,6 +78,9 @@ struct CourseResultView: View {
                 }
             }
         }
+        .fullScreenCover(isPresented: $isSaving, content: {
+            CourseSaveView(isSaving: $isSaving)
+        })
     }
 }
 

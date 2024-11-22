@@ -9,7 +9,9 @@ import SwiftUI
 
 struct CourseSaveView: View {
     
-    @Binding var text: String
+    @Binding var isSaving: Bool
+    
+    @State var text: String = ""
     @State private var date = Date()
     
     var body: some View {
@@ -17,7 +19,7 @@ struct CourseSaveView: View {
             ZStack {
                 HStack {
                     Button {
-                        
+                        self.isSaving.toggle()
                     } label: {
                         Image(systemName: "chevron.backward")
                             .foregroundColor(Color(.label))
@@ -86,5 +88,5 @@ struct CourseSaveView: View {
 }
 
 #Preview {
-    CourseSaveView(text: .constant(""))
+    CourseSaveView(isSaving: .constant(true))
 }
