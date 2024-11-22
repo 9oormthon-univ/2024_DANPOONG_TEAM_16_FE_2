@@ -11,20 +11,12 @@ struct DetailWeatherView: View {
     
     private let currentState = "속초"
     
-    private let tourDays: [Weather] = [
-        Weather(day: "금", date: "11/22", weather: "Rain", highTemperture: "11", lowTemperture: "2"),
-        Weather(day: "토", date: "11/23", weather: "Rain", highTemperture: "11", lowTemperture: "2"),
-        Weather(day: "일", date: "11/24", weather: "Rain", highTemperture: "11", lowTemperture: "2")
-    ]
+    @State private var dailyList: [Daily] = []
     
-    private let weekendWeather: [Weather] = [
-        Weather(day: "금", date: "11/22", weather: "Rain", highTemperture: "11", lowTemperture: "2"),
-        Weather(day: "토", date: "11/23", weather: "Rain", highTemperture: "11", lowTemperture: "2"),
-        Weather(day: "일", date: "11/24", weather: "Rain", highTemperture: "11", lowTemperture: "2"),
-        Weather(day: "월", date: "11/25", weather: "Rain", highTemperture: "11", lowTemperture: "2"),
-        Weather(day: "화", date: "11/26", weather: "Rain", highTemperture: "11", lowTemperture: "2"),
-        Weather(day: "수", date: "11/27", weather: "Rain", highTemperture: "11", lowTemperture: "2"),
-        Weather(day: "목", date: "11/28", weather: "Rain", highTemperture: "11", lowTemperture: "2")
+    private let tourDays: [Weathers] = [
+        Weathers(day: "금", date: "11/22", weather: "Rain", highTemperture: "11", lowTemperture: "2"),
+        Weathers(day: "토", date: "11/23", weather: "Rain", highTemperture: "11", lowTemperture: "2"),
+        Weathers(day: "일", date: "11/24", weather: "Rain", highTemperture: "11", lowTemperture: "2")
     ]
     
     private let currentStateColor = "#17A1FA"
@@ -85,20 +77,23 @@ struct DetailWeatherView: View {
                     }
                     
                     VStack {
-                        ForEach(weekendWeather, id: \.self) { day in
+                        ForEach($dailyList, id: \.self) { day in
                             HStack {
-                                Text(day.day)
+                                let timestamp = Double(day.dt.wrappedValue)
+                                let maxTemp = kelvinToCelsius(day.temp.max.wrappedValue)
+                                let minTemp = kelvinToCelsius(day.temp.min.wrappedValue)
+                                
+                                Text(convertUnixTimestampToDate(timestamp))
                                     .padding(.leading)
-                                Text(day.date)
-                                Image(uiImage: .cloudy)
+                                Image(uiImage: weatherImage(for: day.weather[0].main.wrappedValue))
                                     .padding(.leading, 30)
                                 
                                 Spacer()
                                 Spacer()
                                 Spacer()
                                 
-                                Text("\(day.highTemperture)°")
-                                Text("\(day.lowTemperture)°")
+                                Text(String(format: "%.0f°C", maxTemp))
+                                Text(String(format: "%.0f°C", minTemp))
                                     .padding(.leading)
                                     .padding(.trailing)
                             }
@@ -112,7 +107,53 @@ struct DetailWeatherView: View {
             }
         }
         .scrollIndicators(.hidden)
+        .onAppear(perform: {
+            setWeather()
+        })
     }
+}
+
+private extension DetailWeatherView {
+    
+    func setWeather() {
+        MoyaManager.shared.coordinateToList(lat: 37.38911, lon: 128.72995) { result in
+            switch result {
+            case .success(let data):
+                dailyList = data.daily
+            case .failure(let error):
+                dump(error.localizedDescription)
+            }
+        }
+    }
+    
+    func convertUnixTimestampToDate(_ timestamp: Double) -> String {
+        let date = Date(timeIntervalSince1970: timestamp)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd"
+        dateFormatter.timeZone = TimeZone.current
+        return dateFormatter.string(from: date)
+    }
+
+    func kelvinToCelsius(_ kelvin: Double) -> Double {
+        return kelvin - 273.15
+    }
+    
+    func weatherImage(for condition: String) -> UIImage {
+        switch condition.lowercased() {
+        case "clear":
+            return .sunny1
+        case "cloudy", "clouds":
+            return .cloudy
+        case "rain":
+            return .rainny
+        case "snow":
+            return .rainny
+        default:
+            return .sunny1
+        }
+    }
+
+    
 }
 
 #Preview {
