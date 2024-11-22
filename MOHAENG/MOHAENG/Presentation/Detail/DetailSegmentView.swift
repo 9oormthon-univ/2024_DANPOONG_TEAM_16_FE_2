@@ -54,5 +54,5 @@ enum SegmentedTab: String, CaseIterable {
 }
 
 #Preview {
-    DetailResultView()
+    DetailResultView(isDetailShowing: .constant(true))
 }

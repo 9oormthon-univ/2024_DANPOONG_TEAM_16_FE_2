@@ -10,6 +10,12 @@ import WebKit
 
 class ContentController: NSObject, WKScriptMessageHandler {
     
+    var isViewLoading: Binding<Bool>
+    
+    init(isViewLoading: Binding<Bool>) {
+        self.isViewLoading = isViewLoading
+    }
+    
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         if message.name == "serverEvent" {
             dump("message name : \(message.name)")
@@ -20,21 +26,25 @@ class ContentController: NSObject, WKScriptMessageHandler {
 }
 
 struct WebKit: UIViewRepresentable {
+    
+    @Binding var isViewLoading: Bool
 
     let request: URLRequest
     var webView: WKWebView
 
-    init(request: URLRequest) {
+    init(request: URLRequest, isViewLoading: Binding<Bool>) {
         self.webView = WKWebView()
         self.request = request
+        self._isViewLoading = isViewLoading
         self.webView.configuration.userContentController.add(
-            ContentController(), name: "serverEvent"
+            ContentController(isViewLoading: isViewLoading), name: "serverEvent"
         )
         webView.scrollView.isScrollEnabled = false
         webView.isInspectable = true
     }
 
     func makeUIView(context: Context) -> WKWebView {
+        webView.navigationDelegate = context.coordinator
         return webView
     }
 
@@ -43,14 +53,45 @@ struct WebKit: UIViewRepresentable {
     }
 
     func makeCoordinator() -> Coordinator {
-        Coordinator(parent: self)
+        Coordinator(self)
     }
 
-    class Coordinator: NSObject {
+    class Coordinator: NSObject, WKNavigationDelegate {
         let parent: WebKit
 
-        init(parent: WebKit) {
+        init(_ parent: WebKit) {
             self.parent = parent
+        }
+        
+        func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+            self.parent.isViewLoading = true
+        }
+    }
+    
+}
+
+extension WebKit {
+    
+    func sendContentID(contentID: Int) {
+        if !self.isViewLoading {
+            Task {
+                try await Task.sleep(for: .seconds(1))
+                sendContentID(contentID: contentID)
+            }
+        } else {
+            webView.evaluateJavaScript("sendContentID('\(contentID)')")  { result, error in
+                if let error {
+                    print("Error \(error.localizedDescription)")
+                    return
+                }
+                
+                if result == nil {
+                    print("It's void function")
+                    return
+                }
+                
+                print("Received Data \(result ?? "")")
+            }
         }
     }
     

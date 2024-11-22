@@ -2,7 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-
+	<key>DETAIL_URL</key>
+	<string>$(DETAIL_URL)</string>
 	<key>WEATHER_URL</key>
 	<string>$(WEATHER_URL)</string>
 	<key>BASE_URL</key>

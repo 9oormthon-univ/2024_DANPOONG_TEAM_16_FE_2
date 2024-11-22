@@ -10,6 +10,8 @@ import SwiftUI
 struct HomeView: View {
     
     @State var isOnboarding: Bool = false
+    @State var isResultShowing: Bool = false
+    @State var isDetailShowing: Bool = false
     
     private let semiboldFontSize: CGFloat = 20
     
@@ -59,6 +61,9 @@ struct HomeView: View {
                     .onMove(perform: { indices, newOffset in
                         courseList.move(fromOffsets: indices, toOffset: newOffset)
                     })
+                    .onTapGesture {
+                        self.isDetailShowing.toggle()
+                    }
                 }
                 .listStyle(PlainListStyle())
                 .scrollIndicators(.hidden)
@@ -68,6 +73,12 @@ struct HomeView: View {
         }
         .fullScreenCover(isPresented: $isOnboarding, content: {
             OnboardingView()
+        })
+        .fullScreenCover(isPresented: $isResultShowing, content: {
+            CourseResultView(isResultShowing: $isResultShowing)
+        })
+        .fullScreenCover(isPresented: $isDetailShowing, content: {
+            DetailResultView(isDetailShowing: $isDetailShowing)
         })
         .transaction { transaction in
             transaction.disablesAnimations = true

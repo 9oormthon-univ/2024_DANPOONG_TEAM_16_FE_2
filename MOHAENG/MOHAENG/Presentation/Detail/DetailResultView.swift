@@ -11,6 +11,8 @@ struct DetailResultView: View {
     
     @State private var draw: Bool = true
     
+    @Binding var isDetailShowing: Bool
+    
     @State private var offset: CGFloat = 0
     @State private var lastOffset: CGFloat = 0
     @GestureState var gestureOffset: CGFloat = 0
@@ -26,6 +28,13 @@ struct DetailResultView: View {
                 }
                 .frame(width: .infinity, height: .infinity)
                 .ignoresSafeArea()
+            Button {
+                self.isDetailShowing.toggle()
+            } label: {
+                Image(uiImage: .mountain)
+                    .padding(.bottom, 700)
+                    .padding(.trailing, 300)
+            }
             
             GeometryReader { proxy -> AnyView in
                 let height = proxy.frame(in: .global).height - 100
@@ -72,5 +81,5 @@ extension DetailResultView {
 }
 
 #Preview {
-    DetailResultView()
+    DetailResultView(isDetailShowing: .constant(true))
 }

@@ -10,7 +10,10 @@ import SwiftUI
 struct CourseResultView: View {
     
     @State private var draw: Bool = true
+    @State private var isSaving: Bool = false
     @State var selectedDay: Int = 0
+    
+    @Binding var isResultShowing: Bool
     
     private let place = "속초"
     private let period = "2박3일"
@@ -31,6 +34,22 @@ struct CourseResultView: View {
             GeometryReader { geometry in
                 ZStack {
                     VStack {
+                        ZStack {
+                            HStack {
+                                Button {
+                                    self.isResultShowing.toggle()
+                                } label: {
+                                    Image(systemName: "chevron.backward")
+                                        .foregroundColor(Color(.label))
+                                }
+                                Spacer()
+                            }
+                            .padding()
+                            
+                            Text("완성된 코스를 확인해보세요")
+                                .font(.system(size: 16, weight: .semibold))
+                        }
+                        
                         Image(uiImage: .mountain)
                         HStack {
                             Text(place)
@@ -66,7 +85,7 @@ struct CourseResultView: View {
                     }
                     
                     Button {
-                        
+                        self.isSaving.toggle()
                     } label: {
                         Text("내 코스로 등록하기")
                             .font(.system(size: floatingFontSize, weight: .semibold))
@@ -77,9 +96,12 @@ struct CourseResultView: View {
                 }
             }
         }
+        .fullScreenCover(isPresented: $isSaving, content: {
+            CourseSaveView(isSaving: $isSaving)
+        })
     }
 }
 
 #Preview {
-    CourseResultView()
+    CourseResultView(isResultShowing: .constant(true))
 }

@@ -62,7 +62,7 @@ struct MOHAENGApp: App {
     private func registerUUID() {
         MoyaManager.shared.registerUUID(UUID: self.deviceUUID) { result in
             switch result {
-            case .success(let response):
+            case .success(_):
                 self.isCheck = true
             case .failure(let error):
                 dump(error.localizedDescription)

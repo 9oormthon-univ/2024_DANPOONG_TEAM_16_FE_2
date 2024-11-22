@@ -9,9 +9,14 @@ import SwiftUI
 
 struct OnboardingView: View {
     
+    @State private var isViewShowing: Bool = false
+    
     var body: some View {
-        let url = URL(string: "http://\(Bundle.main.ONBOARDING_URL!)")
-        let webView = WebKit(request: URLRequest(url: url!))
+        let url = URL(string: "https://\(Bundle.main.ONBOARDING_URL!)")
+        let webView = WebKit(
+            request: URLRequest(url: url!), 
+            isViewLoading: $isViewShowing
+        )
         
         VStack {
             webView
