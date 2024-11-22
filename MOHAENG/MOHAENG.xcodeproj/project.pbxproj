@@ -11,8 +11,15 @@
 		8F13DDD12CEF047800CE488D /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F13DDD02CEF047800CE488D /* Weather.swift */; };
 		8F13DDD42CEF08DD00CE488D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F13DDD32CEF08DD00CE488D /* HomeView.swift */; };
 		8F13DDD62CEF13C500CE488D /* HomeCourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F13DDD52CEF13C500CE488D /* HomeCourseView.swift */; };
+		8F13DDDA2CEF222400CE488D /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 8F13DDD92CEF222400CE488D /* CombineMoya */; };
+		8F13DDDC2CEF222400CE488D /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 8F13DDDB2CEF222400CE488D /* Moya */; };
+		8F13DDDE2CEF222400CE488D /* ReactiveMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 8F13DDDD2CEF222400CE488D /* ReactiveMoya */; };
+		8F13DDE02CEF222400CE488D /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 8F13DDDF2CEF222400CE488D /* RxMoya */; };
+		8F13DDE22CEF229600CE488D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F13DDE12CEF229600CE488D /* NetworkManager.swift */; };
+		8F13DDE42CEF230100CE488D /* MoyaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F13DDE32CEF230100CE488D /* MoyaManager.swift */; };
 		8F13DDE62CEF4EAA00CE488D /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F13DDE52CEF4EAA00CE488D /* WebView.swift */; };
 		8F13DDE82CEF501D00CE488D /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F13DDE72CEF501D00CE488D /* OnboardingView.swift */; };
+		8F13DDEA2CF03FEE00CE488D /* WeatherDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F13DDE92CF03FEE00CE488D /* WeatherDTO.swift */; };
 		8F14B3B72CEB3C1E0080CACA /* CourseResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F14B3B62CEB3C1E0080CACA /* CourseResultView.swift */; };
 		8F14B3BB2CEB49540080CACA /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F14B3BA2CEB49540080CACA /* MapView.swift */; };
 		8F14B3BE2CEB49E80080CACA /* KakaoMapsSDK-SPM in Frameworks */ = {isa = PBXBuildFile; productRef = 8F14B3BD2CEB49E80080CACA /* KakaoMapsSDK-SPM */; };
@@ -42,8 +49,11 @@
 		8F13DDD02CEF047800CE488D /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		8F13DDD32CEF08DD00CE488D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		8F13DDD52CEF13C500CE488D /* HomeCourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCourseView.swift; sourceTree = "<group>"; };
+		8F13DDE12CEF229600CE488D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		8F13DDE32CEF230100CE488D /* MoyaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaManager.swift; sourceTree = "<group>"; };
 		8F13DDE52CEF4EAA00CE488D /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		8F13DDE72CEF501D00CE488D /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		8F13DDE92CF03FEE00CE488D /* WeatherDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDTO.swift; sourceTree = "<group>"; };
 		8F14B3B62CEB3C1E0080CACA /* CourseResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseResultView.swift; sourceTree = "<group>"; };
 		8F14B3BA2CEB49540080CACA /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		8F14B3BF2CEB4A3F0080CACA /* MapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCoordinator.swift; sourceTree = "<group>"; };
@@ -75,7 +85,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F13DDE02CEF222400CE488D /* RxMoya in Frameworks */,
+				8F13DDDA2CEF222400CE488D /* CombineMoya in Frameworks */,
+				8F13DDDE2CEF222400CE488D /* ReactiveMoya in Frameworks */,
 				8F14B3BE2CEB49E80080CACA /* KakaoMapsSDK-SPM in Frameworks */,
+				8F13DDDC2CEF222400CE488D /* Moya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				8F13DDD02CEF047800CE488D /* Weather.swift */,
+				8F13DDE92CF03FEE00CE488D /* WeatherDTO.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -98,6 +113,15 @@
 				8F13DDE72CEF501D00CE488D /* OnboardingView.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		8F13DDD72CEF213900CE488D /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				8F13DDE12CEF229600CE488D /* NetworkManager.swift */,
+				8F13DDE32CEF230100CE488D /* MoyaManager.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		8F14B3B42CEB3B450080CACA /* Presentation */ = {
@@ -154,6 +178,7 @@
 				8F25A9DF2CEAFA8A00223ADD /* Info.plist */,
 				8F25A9D12CEAFA3200223ADD /* MOHAENGApp.swift */,
 				8F25A9D32CEAFA3200223ADD /* ContentView.swift */,
+				8F13DDD72CEF213900CE488D /* Network */,
 				8F13DDCF2CEF046C00CE488D /* Model */,
 				8F14B3B42CEB3B450080CACA /* Presentation */,
 				8F6032982CEB33BC000D2B55 /* Extension */,
@@ -232,6 +257,10 @@
 			name = MOHAENG;
 			packageProductDependencies = (
 				8F14B3BD2CEB49E80080CACA /* KakaoMapsSDK-SPM */,
+				8F13DDD92CEF222400CE488D /* CombineMoya */,
+				8F13DDDB2CEF222400CE488D /* Moya */,
+				8F13DDDD2CEF222400CE488D /* ReactiveMoya */,
+				8F13DDDF2CEF222400CE488D /* RxMoya */,
 			);
 			productName = MOHAENG;
 			productReference = 8F25A9CE2CEAFA3200223ADD /* MOHAENG.app */;
@@ -263,6 +292,7 @@
 			mainGroup = 8F25A9C52CEAFA3200223ADD;
 			packageReferences = (
 				8F14B3BC2CEB49E80080CACA /* XCRemoteSwiftPackageReference "KakaoMapsSDK-SPM" */,
+				8F13DDD82CEF222400CE488D /* XCRemoteSwiftPackageReference "Moya" */,
 			);
 			productRefGroup = 8F25A9CF2CEAFA3200223ADD /* Products */;
 			projectDirPath = "";
@@ -301,11 +331,14 @@
 				8F648C4C2CEC89450045BDDC /* SegmentedControl.swift in Sources */,
 				8F13DDE62CEF4EAA00CE488D /* WebView.swift in Sources */,
 				8F13DDD62CEF13C500CE488D /* HomeCourseView.swift in Sources */,
+				8F13DDE42CEF230100CE488D /* MoyaManager.swift in Sources */,
 				8F648C452CEC79490045BDDC /* CustomCorner.swift in Sources */,
 				8F648C3D2CEC78090045BDDC /* DetailBottomSheetView.swift in Sources */,
+				8F13DDE22CEF229600CE488D /* NetworkManager.swift in Sources */,
 				8F648C382CEC5FAA0045BDDC /* Button+.swift in Sources */,
 				8F648C3F2CEC78110045BDDC /* DetailWeatherView.swift in Sources */,
 				8F648C3B2CEC76830045BDDC /* DetailResultView.swift in Sources */,
+				8F13DDEA2CF03FEE00CE488D /* WeatherDTO.swift in Sources */,
 				8F13DDD12CEF047800CE488D /* Weather.swift in Sources */,
 				8F14B3BB2CEB49540080CACA /* MapView.swift in Sources */,
 				8F13DDE82CEF501D00CE488D /* OnboardingView.swift in Sources */,
@@ -530,6 +563,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		8F13DDD82CEF222400CE488D /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.3;
+			};
+		};
 		8F14B3BC2CEB49E80080CACA /* XCRemoteSwiftPackageReference "KakaoMapsSDK-SPM" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kakao-mapsSDK/KakaoMapsSDK-SPM.git";
@@ -541,6 +582,26 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		8F13DDD92CEF222400CE488D /* CombineMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8F13DDD82CEF222400CE488D /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = CombineMoya;
+		};
+		8F13DDDB2CEF222400CE488D /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8F13DDD82CEF222400CE488D /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		8F13DDDD2CEF222400CE488D /* ReactiveMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8F13DDD82CEF222400CE488D /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = ReactiveMoya;
+		};
+		8F13DDDF2CEF222400CE488D /* RxMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8F13DDD82CEF222400CE488D /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = RxMoya;
+		};
 		8F14B3BD2CEB49E80080CACA /* KakaoMapsSDK-SPM */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8F14B3BC2CEB49E80080CACA /* XCRemoteSwiftPackageReference "KakaoMapsSDK-SPM" */;
