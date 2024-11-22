@@ -48,5 +48,5 @@ struct DetailNotificationView: View {
 }
 
 #Preview {
-    DetailResultView()
+    DetailResultView(isDetailShowing: .constant(true))
 }

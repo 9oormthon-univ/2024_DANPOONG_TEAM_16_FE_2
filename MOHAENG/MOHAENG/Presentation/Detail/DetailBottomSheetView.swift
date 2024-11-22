@@ -33,5 +33,5 @@ struct DetailBottomSheetView: View {
 }
 
 #Preview {
-    DetailResultView()
+    DetailResultView(isDetailShowing: .constant(true))
 }

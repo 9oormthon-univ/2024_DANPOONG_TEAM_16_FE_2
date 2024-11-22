@@ -53,5 +53,5 @@ struct DetailTitleView: View {
 }
 
 #Preview {
-    DetailResultView()
+    DetailResultView(isDetailShowing: .constant(true))
 }
