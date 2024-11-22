@@ -10,6 +10,7 @@ import SwiftUI
 struct CourseListView: View {
     
     @State private var numbers: [Int] = [ 1, 2, 3, 4, 5 ]
+    @State private var isWebViewShowing: Bool = false
     
     var body: some View {
         List {
@@ -48,9 +49,15 @@ struct CourseListView: View {
             .onMove(perform: { indices, newOffset in
                 numbers.move(fromOffsets: indices, toOffset: newOffset)
             })
+            .onTapGesture {
+                self.isWebViewShowing.toggle()
+            }
         }
         .listStyle(PlainListStyle())
         .scrollIndicators(.hidden)
+        .fullScreenCover(isPresented: $isWebViewShowing, content: {
+            CourseWebView()
+        })
     }
 }
 
