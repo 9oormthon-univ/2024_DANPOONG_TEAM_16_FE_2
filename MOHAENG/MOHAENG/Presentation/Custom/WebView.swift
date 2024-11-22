@@ -20,6 +20,8 @@ class ContentController: NSObject, WKScriptMessageHandler {
 }
 
 struct WebKit: UIViewRepresentable {
+    
+    @State private var isLoading: Bool = false
 
     let request: URLRequest
     var webView: WKWebView
@@ -35,6 +37,7 @@ struct WebKit: UIViewRepresentable {
     }
 
     func makeUIView(context: Context) -> WKWebView {
+        webView.navigationDelegate = context.coordinator
         return webView
     }
 
@@ -43,14 +46,46 @@ struct WebKit: UIViewRepresentable {
     }
 
     func makeCoordinator() -> Coordinator {
-        Coordinator(parent: self)
+        Coordinator(self)
     }
 
-    class Coordinator: NSObject {
+    class Coordinator: NSObject, WKNavigationDelegate {
         let parent: WebKit
 
-        init(parent: WebKit) {
+        init(_ parent: WebKit) {
             self.parent = parent
+        }
+        
+        func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+            self.parent.isLoading = true
+            dump("success!")
+        }
+    }
+    
+}
+
+extension WebKit {
+    
+    func sendContentID(contentID: Int) {
+        if !self.isLoading {
+            Task {
+                try await Task.sleep(for: .seconds(1))
+                sendContentID(contentID: contentID)
+            }
+        } else {
+            webView.evaluateJavaScript("sendContentID('\(contentID)')")  { result, error in
+                if let error {
+                    print("Error \(error.localizedDescription)")
+                    return
+                }
+                
+                if result == nil {
+                    print("It's void function")
+                    return
+                }
+                
+                print("Received Data \(result ?? "")")
+            }
         }
     }
     
