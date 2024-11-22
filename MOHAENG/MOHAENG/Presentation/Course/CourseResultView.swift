@@ -13,6 +13,8 @@ struct CourseResultView: View {
     @State private var isSaving: Bool = false
     @State var selectedDay: Int = 0
     
+    @Binding var isResultShowing: Bool
+    
     private let place = "속초"
     private let period = "2박3일"
     private let mention = "더욱 쉽게 접근할 수 있는 코스로 준비했어요"
@@ -32,6 +34,22 @@ struct CourseResultView: View {
             GeometryReader { geometry in
                 ZStack {
                     VStack {
+                        ZStack {
+                            HStack {
+                                Button {
+                                    self.isResultShowing.toggle()
+                                } label: {
+                                    Image(systemName: "chevron.backward")
+                                        .foregroundColor(Color(.label))
+                                }
+                                Spacer()
+                            }
+                            .padding()
+                            
+                            Text("완성된 코스를 확인해보세요")
+                                .font(.system(size: 16, weight: .semibold))
+                        }
+                        
                         Image(uiImage: .mountain)
                         HStack {
                             Text(place)
@@ -85,5 +103,5 @@ struct CourseResultView: View {
 }
 
 #Preview {
-    CourseResultView()
+    CourseResultView(isResultShowing: .constant(true))
 }

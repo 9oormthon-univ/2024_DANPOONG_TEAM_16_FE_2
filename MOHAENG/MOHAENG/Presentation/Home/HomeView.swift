@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     
     @State var isOnboarding: Bool = false
+    @State var isResultShowing: Bool = false
     
     private let semiboldFontSize: CGFloat = 20
     
@@ -68,6 +69,9 @@ struct HomeView: View {
         }
         .fullScreenCover(isPresented: $isOnboarding, content: {
             OnboardingView()
+        })
+        .fullScreenCover(isPresented: $isResultShowing, content: {
+            CourseResultView(isResultShowing: $isResultShowing)
         })
         .transaction { transaction in
             transaction.disablesAnimations = true

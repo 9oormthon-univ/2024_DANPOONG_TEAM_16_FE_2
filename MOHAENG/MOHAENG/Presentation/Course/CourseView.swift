@@ -28,5 +28,5 @@ struct CourseView: View {
 }
 
 #Preview {
-    CourseResultView()
+    CourseResultView(isResultShowing: .constant(true))
 }
