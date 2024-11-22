@@ -20,6 +20,8 @@
 		8F13DDE62CEF4EAA00CE488D /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F13DDE52CEF4EAA00CE488D /* WebView.swift */; };
 		8F13DDE82CEF501D00CE488D /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F13DDE72CEF501D00CE488D /* OnboardingView.swift */; };
 		8F13DDEA2CF03FEE00CE488D /* WeatherDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F13DDE92CF03FEE00CE488D /* WeatherDTO.swift */; };
+		8F13DDF62CF0803100CE488D /* CourseSaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F13DDF52CF0803100CE488D /* CourseSaveView.swift */; };
+		8F13DDF82CF0DF4900CE488D /* CourseWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F13DDF72CF0DF4800CE488D /* CourseWebView.swift */; };
 		8F14B3B72CEB3C1E0080CACA /* CourseResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F14B3B62CEB3C1E0080CACA /* CourseResultView.swift */; };
 		8F14B3BB2CEB49540080CACA /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F14B3BA2CEB49540080CACA /* MapView.swift */; };
 		8F14B3BE2CEB49E80080CACA /* KakaoMapsSDK-SPM in Frameworks */ = {isa = PBXBuildFile; productRef = 8F14B3BD2CEB49E80080CACA /* KakaoMapsSDK-SPM */; };
@@ -54,6 +56,8 @@
 		8F13DDE52CEF4EAA00CE488D /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		8F13DDE72CEF501D00CE488D /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		8F13DDE92CF03FEE00CE488D /* WeatherDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDTO.swift; sourceTree = "<group>"; };
+		8F13DDF52CF0803100CE488D /* CourseSaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseSaveView.swift; sourceTree = "<group>"; };
+		8F13DDF72CF0DF4800CE488D /* CourseWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseWebView.swift; sourceTree = "<group>"; };
 		8F14B3B62CEB3C1E0080CACA /* CourseResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseResultView.swift; sourceTree = "<group>"; };
 		8F14B3BA2CEB49540080CACA /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		8F14B3BF2CEB4A3F0080CACA /* MapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCoordinator.swift; sourceTree = "<group>"; };
@@ -142,6 +146,8 @@
 				8F14B3B62CEB3C1E0080CACA /* CourseResultView.swift */,
 				8F648C312CEC46600045BDDC /* CourseListView.swift */,
 				8F648C332CEC495B0045BDDC /* CourseView.swift */,
+				8F13DDF52CF0803100CE488D /* CourseSaveView.swift */,
+				8F13DDF72CF0DF4800CE488D /* CourseWebView.swift */,
 			);
 			path = Course;
 			sourceTree = "<group>";
@@ -328,9 +334,11 @@
 				8F13DDD42CEF08DD00CE488D /* HomeView.swift in Sources */,
 				8F648C4A2CEC88F50045BDDC /* DetailTitleView.swift in Sources */,
 				8F60329A2CEB33C5000D2B55 /* Bundle+.swift in Sources */,
+				8F13DDF82CF0DF4900CE488D /* CourseWebView.swift in Sources */,
 				8F648C4C2CEC89450045BDDC /* SegmentedControl.swift in Sources */,
 				8F13DDE62CEF4EAA00CE488D /* WebView.swift in Sources */,
 				8F13DDD62CEF13C500CE488D /* HomeCourseView.swift in Sources */,
+				8F13DDF62CF0803100CE488D /* CourseSaveView.swift in Sources */,
 				8F13DDE42CEF230100CE488D /* MoyaManager.swift in Sources */,
 				8F648C452CEC79490045BDDC /* CustomCorner.swift in Sources */,
 				8F648C3D2CEC78090045BDDC /* DetailBottomSheetView.swift in Sources */,
