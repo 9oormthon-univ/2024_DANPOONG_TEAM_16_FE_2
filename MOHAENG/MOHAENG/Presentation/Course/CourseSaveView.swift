@@ -75,8 +75,9 @@ struct CourseSaveView: View {
                             .font(.system(size: 20, weight: .bold))
                     }
                     .buttonStyle(.plain)
-                    .background(Color(hex: "#1650A9"))
+                    .background(text == "" ? Color(hex: "#D9D9D9") : Color(hex: "#1650A9"))
                     .cornerRadius(10)
+                    .disabled(text.isEmpty)
                 }
 
             }
