@@ -30,4 +30,35 @@ final class MoyaManager {
             }
         }
     }
+    
+    func checkUUID(UUID: String, completion: @escaping (Result<String, Error>) -> Void) {
+        provider.request(.getUserExist(UUID: UUID)) { result in
+            switch result {
+            case .success(let response):
+                if let data = String(data: response.data, encoding: .utf8) {
+                        completion(.success(data))
+                } else {
+                    completion(.failure(NSError(domain: "DataDecodingError", code: 0)))
+                }
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func registerUUID(UUID: String, completion: @escaping (Result<String, Error>) -> Void) {
+        provider.request(.postUserRegister(UUID: UUID)) { result in
+            switch result {
+            case .success(let response):
+                if let data = String(data: response.data, encoding: .utf8) {
+                        completion(.success(data))
+                } else {
+                    completion(.failure(NSError(domain: "DataDecodingError", code: 0)))
+                }
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
 }

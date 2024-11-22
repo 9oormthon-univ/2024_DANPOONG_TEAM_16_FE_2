@@ -11,6 +11,8 @@ import Moya
 enum NetworkManager {
     
     case getWeather(lat: Double, lon: Double)
+    case getUserExist(UUID: String)
+    case postUserRegister(UUID: String)
     
 }
 
@@ -30,11 +32,17 @@ extension NetworkManager: TargetType {
         switch self {
         case .getWeather(lat: _, lon: _):
             return "onecall"
+        case .getUserExist(UUID: _):
+            return "api/v1/user/exist"
+        case .postUserRegister(UUID: _):
+            return "api/v1/user"
         }
     }
     
     var method: Moya.Method {
         switch self {
+        case .postUserRegister(UUID: _):
+            return .post
         default:
             return .get
         }
@@ -51,6 +59,22 @@ extension NetworkManager: TargetType {
             ]
             
             return .requestParameters(parameters: params, encoding: URLEncoding.queryString)
+            
+        case let .getUserExist(UUID):
+            let params: [String: String] = [
+                "uuid": UUID
+            ]
+            
+            return .requestParameters(parameters: params, encoding: URLEncoding.queryString)
+            
+        case let .postUserRegister(UUID):
+            let params: [String: String] = [
+                "uuid": UUID
+            ]
+            
+            return .requestJSONEncodable(params)
+//            return .requestParameters(parameters: params, encoding: URLEncoding.default)
+
         }
     }
     
