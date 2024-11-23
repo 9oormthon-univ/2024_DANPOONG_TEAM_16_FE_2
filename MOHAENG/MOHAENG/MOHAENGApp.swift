@@ -45,10 +45,10 @@ struct MOHAENGApp: App {
         MoyaManager.shared.checkUUID(UUID: Bundle.main.UUID) { result in
             switch result {
             case .success(let response):
-                if response == "유저가 존재하지 않습니다\n" {
-                    registerUUID()
-                } else {
+                if response == "유저가 존재합니다.\n" {
                     self.isCheck = true
+                } else {
+                    registerUUID()
                 }
             case .failure(let error):
                 dump(error.localizedDescription)
