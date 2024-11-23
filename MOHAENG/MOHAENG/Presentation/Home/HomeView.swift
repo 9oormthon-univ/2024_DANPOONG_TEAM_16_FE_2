@@ -21,6 +21,7 @@ struct HomeView: View {
     var body: some View {
         ScrollView {
             Image(uiImage: .title)
+                .padding(.top, 20)
             
             ZStack {
                 Image(uiImage: .createButton)
