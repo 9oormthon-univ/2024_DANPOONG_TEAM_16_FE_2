@@ -70,7 +70,7 @@ struct HomeView: View {
             Spacer()
         }
         .fullScreenCover(isPresented: $isOnboarding, content: {
-            OnboardingView()
+            OnboardingView(isOnboarding: $isOnboarding)
         })
         .fullScreenCover(isPresented: $isResultShowing, content: {
             CourseResultView(isResultShowing: $isResultShowing)

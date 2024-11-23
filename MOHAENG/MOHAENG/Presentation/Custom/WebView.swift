@@ -11,15 +11,22 @@ import WebKit
 class ContentController: NSObject, WKScriptMessageHandler {
     
     var isViewLoading: Binding<Bool>
+    var isOnboarding: Binding<Bool>
     
-    init(isViewLoading: Binding<Bool>) {
+    init(isViewLoading: Binding<Bool>, isOnboarding: Binding<Bool>) {
         self.isViewLoading = isViewLoading
+        self.isOnboarding = isOnboarding
     }
     
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         if message.name == "serverEvent" {
             dump("message name : \(message.name)")
             dump("post Message : \(message.body)")
+            
+            if message.body as? String == "cancel" {
+                self.isViewLoading.wrappedValue = false
+                self.isOnboarding.wrappedValue = false
+            }
         }
     }
     
@@ -28,16 +35,18 @@ class ContentController: NSObject, WKScriptMessageHandler {
 struct WebKit: UIViewRepresentable {
     
     @Binding var isViewLoading: Bool
+    @Binding var isOnboarding: Bool
 
     let request: URLRequest
     var webView: WKWebView
 
-    init(request: URLRequest, isViewLoading: Binding<Bool>) {
+    init(request: URLRequest, isViewLoading: Binding<Bool>, isOnboarding: Binding<Bool>) {
         self.webView = WKWebView()
         self.request = request
         self._isViewLoading = isViewLoading
+        self._isOnboarding = isOnboarding
         self.webView.configuration.userContentController.add(
-            ContentController(isViewLoading: isViewLoading), name: "serverEvent"
+            ContentController(isViewLoading: isViewLoading, isOnboarding: isOnboarding), name: "serverEvent"
         )
         webView.scrollView.isScrollEnabled = false
         webView.isInspectable = true

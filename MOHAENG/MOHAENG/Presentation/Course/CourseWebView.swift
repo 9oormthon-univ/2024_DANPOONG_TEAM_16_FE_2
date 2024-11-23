@@ -15,7 +15,8 @@ struct CourseWebView: View {
         let url = URL(string: "https://\(Bundle.main.DETAIL_URL!)")
         let webView = WebKit(
             request: URLRequest(url: url!),
-            isViewLoading: $isViewLoading
+            isViewLoading: $isViewLoading,
+            isOnboarding: $isViewLoading
         )
         
         VStack {

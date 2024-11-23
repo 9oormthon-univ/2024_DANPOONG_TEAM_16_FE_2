@@ -11,11 +11,14 @@ struct OnboardingView: View {
     
     @State private var isViewShowing: Bool = false
     
+    @Binding var isOnboarding: Bool
+    
     var body: some View {
         let url = URL(string: "https://\(Bundle.main.ONBOARDING_URL!)")
         let webView = WebKit(
             request: URLRequest(url: url!), 
-            isViewLoading: $isViewShowing
+            isViewLoading: $isViewShowing,
+            isOnboarding: $isOnboarding
         )
         
         VStack {
@@ -28,8 +31,4 @@ struct OnboardingView: View {
         .edgesIgnoringSafeArea(.bottom)
     }
     
-}
-
-#Preview {
-    OnboardingView()
 }
