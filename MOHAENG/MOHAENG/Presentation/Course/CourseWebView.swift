@@ -10,13 +10,14 @@ import SwiftUI
 struct CourseWebView: View {
     
     @State var isViewLoading: Bool = false
+    @Binding var isOnboarding: Bool
 
     var body: some View {
         let url = URL(string: "https://\(Bundle.main.DETAIL_URL!)")
         let webView = WebKit(
             request: URLRequest(url: url!),
             isViewLoading: $isViewLoading,
-            isOnboarding: $isViewLoading
+            isOnboarding: $isOnboarding
         )
         
         VStack {
@@ -26,14 +27,11 @@ struct CourseWebView: View {
                 }
                 .scrollDisabled(true)
                 .task {
-                    webView.sendContentID(contentID: 123)
+                    webView.sendContentID(contentID: 125266)
                 }
+                .edgesIgnoringSafeArea(.all)
         }
-        .edgesIgnoringSafeArea(.bottom)
+        .edgesIgnoringSafeArea(.all)
     }
     
-}
-
-#Preview {
-    CourseWebView()
 }

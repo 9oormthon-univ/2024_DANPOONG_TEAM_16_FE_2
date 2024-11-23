@@ -27,6 +27,16 @@ class ContentController: NSObject, WKScriptMessageHandler {
                 self.isViewLoading.wrappedValue = false
                 self.isOnboarding.wrappedValue = false
             }
+            
+            if message.body as? String == "back" {
+                self.isViewLoading.wrappedValue = false
+                self.isOnboarding.wrappedValue = false
+            }
+            
+            if message.body as? String == "home" {
+                self.isViewLoading.wrappedValue = false
+                self.isOnboarding.wrappedValue = false
+            }
         }
     }
     

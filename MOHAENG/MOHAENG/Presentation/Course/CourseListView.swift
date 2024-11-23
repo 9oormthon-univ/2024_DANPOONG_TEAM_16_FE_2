@@ -21,6 +21,7 @@ struct CourseListView: View {
     
     @State private var numbers: [Course] = []
     @State private var isWebViewShowing: Bool = false
+    @State private var isOnboarding: Bool = false
     
     init(
         course: Binding<CourseDTO>,
@@ -78,7 +79,7 @@ struct CourseListView: View {
             numbers.move(fromOffsets: indices, toOffset: newOffset)
         })
         .onTapGesture {
-            self.isWebViewShowing.toggle()
+            self.isOnboarding.toggle()
         }
         .onChange(of: selectedNumber) { _, newValue in
             if newValue == 1 {
@@ -89,8 +90,8 @@ struct CourseListView: View {
                 selectedList = dayThreeList
             }
         }
-        .fullScreenCover(isPresented: $isWebViewShowing, content: {
-            CourseWebView()
+        .fullScreenCover(isPresented: $isOnboarding, content: {
+            CourseWebView(isOnboarding: $isOnboarding)
         })
     }
 
