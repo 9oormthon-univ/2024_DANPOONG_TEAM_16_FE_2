@@ -38,7 +38,7 @@ struct DetailTitleView: View {
                             .font(.system(size: fontSize))
                 }
                 
-                DetailNotificationView(list: ["- 고령자를 위한 이동 편의"])
+                DetailNotificationView(list: course.disability)
             })
             .frame(maxWidth: .infinity)
             

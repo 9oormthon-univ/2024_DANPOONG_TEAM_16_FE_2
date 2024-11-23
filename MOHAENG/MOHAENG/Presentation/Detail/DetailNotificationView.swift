@@ -9,14 +9,23 @@ import SwiftUI
 
 struct DetailNotificationView: View {
     
-    private var list: [String] = []
+    private var notificationList: [String] = [
+        "고령자를 위한 이동 편의",
+        "지체장애인을 위한 접근성 강화",
+        "임산부를 위한 안전 고려",
+        "시각장애인을 위한 직관성 고려",
+        "청각장애인의 손쉬운 소통 고려",
+        "사용자 맞춤형 관광 코스 고려"
+    ]
+    
+    private var list: [Int]
     
     private let notificationFontColor = "184EA7"
     private let notificationBackgroundColor = "E4F8FF"
     
     private let fontSize: CGFloat = 14
     
-    init(list: [String]) {
+    init(list: [Int]) {
         self.list = list
     }
     
@@ -29,9 +38,11 @@ struct DetailNotificationView: View {
                     .foregroundColor(Color(hex: "\(notificationFontColor)"))
                     .padding(.bottom, 5)
                 
-                ForEach(list, id: \.self) { component in
-                    Text("\(component)")
-                        .font(.system(size: fontSize, weight: .semibold))
+                ForEach(list, id: \.self) { index in
+                    if index < 6 {
+                        Text("\(notificationList[index])")
+                            .font(.system(size: fontSize, weight: .semibold))
+                    }
                 }
             }
             .padding()
