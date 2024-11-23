@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "CreateButton.svg",
+      "filename" : "create.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "CreateButton 1.svg",
+      "filename" : "create 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "CreateButton 2.svg",
+      "filename" : "create 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
