@@ -147,7 +147,7 @@ private extension DetailWeatherView {
         case "rain":
             return .rainny
         case "snow":
-            return .rainny
+            return .snow
         default:
             return .sunny1
         }

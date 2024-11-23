@@ -49,7 +49,7 @@ struct DetailResultView: View {
                     Button {
                         self.isDetailShowing.toggle()
                     } label: {
-                        Image(uiImage: .mountain)
+                        Image(uiImage: .back)
                             .frame(width: 44, height: 44) 
                             .contentShape(Rectangle())
                     }
