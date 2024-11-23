@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DetailResultView: View {
     
-    @State private var course: CourseDTO = CourseDTO(courseNumber: 1, courseName: "1", area: "서울", startDate: "2024/11/23", endDate: "2024/11/24", period: 2, disability: [], day1: [], day2: [], day3: [])
+    @State private var course: CourseDTO = CourseDTO(courseNumber: 1, courseName: "1", area: "서울", startDate: "2024/11/23", endDate: "2024/11/24", period: 2, disability: [], gpsX: 38.4, gpsY: 123.4, day1: [], day2: [], day3: [])
     @Binding var courseNumber: Int?
     
     @State private var draw: Bool = true
@@ -27,21 +27,35 @@ struct DetailResultView: View {
     
     var body: some View {
         ZStack {
-            MapView(draw: $draw)
-                .onAppear {
-                    self.draw = true
+            MapView(
+                draw: $draw,
+                gpsY: $course.gpsY,
+                gpsX: $course.gpsX,
+                list: $course.day1
+            )
+            .onAppear {
+                self.draw = true
+            }
+            .onDisappear{
+                self.draw = false
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .ignoresSafeArea()
+            VStack {
+                HStack {
+                    Button {
+                        self.isDetailShowing.toggle()
+                    } label: {
+                        Image(uiImage: .mountain)
+                            .frame(width: 44, height: 44) 
+                            .contentShape(Rectangle())
+                    }
+                    .padding(.top, 20)
+                    .padding(.leading, 20)
+                    
+                    Spacer()
                 }
-                .onDisappear{
-                    self.draw = false
-                }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .ignoresSafeArea()
-            Button {
-                self.isDetailShowing.toggle()
-            } label: {
-                Image(uiImage: .mountain)
-                    .padding(.bottom, 700)
-                    .padding(.trailing, 300)
+                Spacer()
             }
             
             GeometryReader { proxy -> AnyView in
