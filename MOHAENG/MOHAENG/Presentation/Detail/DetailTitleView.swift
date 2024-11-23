@@ -43,11 +43,11 @@ struct DetailTitleView: View {
                 
                 DetailNotificationView(list: ["- 고령자를 위한 이동 편의"])
             })
-            .frame(width: .infinity)
+            .frame(maxWidth: .infinity)
             
             Spacer()
         }
-        .frame(width: .infinity)
+        .frame(maxWidth: .infinity)
         .padding()
     }
 }

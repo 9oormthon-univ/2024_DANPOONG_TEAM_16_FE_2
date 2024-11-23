@@ -38,7 +38,7 @@ struct DetailNotificationView: View {
             
             Spacer()
         }
-        .frame(width: .infinity)
+        .frame(maxWidth: .infinity)
         .background(
             RoundedRectangle(cornerRadius: 10)
                 .fill(Color(hex: "\(notificationBackgroundColor)"))
