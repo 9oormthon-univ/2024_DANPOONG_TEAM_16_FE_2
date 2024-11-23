@@ -183,8 +183,8 @@ extension KakaoMapCoordinator {
         let styleSet = RouteStyleSet(styleID: "RouteStyleSet")
         
         let perLevelRouteStyle = PerLevelRouteStyle(
-            width: 8,
-            color: .red,
+            width: 4,
+            color: .gray,
             level: 0,
             patternIndex: -1
         )
