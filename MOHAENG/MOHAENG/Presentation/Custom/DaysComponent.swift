@@ -10,7 +10,7 @@ import SwiftUI
 struct DaysComponent: View {
     
     @Binding var selectedDay: Int
-    let daysList: [String]
+    let days: Int
     let backgroundColor: String
     let defalutColor: String
     let fontColor: String
@@ -18,11 +18,11 @@ struct DaysComponent: View {
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
-                ForEach(0..<daysList.count, id: \.self) { index in
+                ForEach(1...days, id: \.self) { index in
                     Button {
                         self.selectedDay = index
                     } label: {
-                        Text("\(self.daysList[index])")
+                        Text("\(index)일차")
                             .font(.system(size: 14))
                             .foregroundStyle(Color(hex: "\(fontColor)"))
                             .padding(EdgeInsets(top: 5, leading: 15, bottom: 5, trailing: 15))

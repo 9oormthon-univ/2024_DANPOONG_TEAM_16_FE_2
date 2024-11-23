@@ -11,9 +11,7 @@ struct DetailCourseView: View {
     
     @Binding var course: CourseDTO?
     
-    @State var selectedDay: Int = 0
-    
-    private let daysList: [String] = ["1일차", "2일차", "3일차"]
+    @State var selectedDay: Int = 1
     
     private let backgroundColor = "0A70C9"
     private let defalutColor = "E2E2E2"
@@ -28,7 +26,7 @@ struct DetailCourseView: View {
             VStack {
                 DaysComponent(
                     selectedDay: $selectedDay,
-                    daysList: daysList,
+                    days: course?.period ?? 1,
                     backgroundColor: backgroundColor,
                     defalutColor: defalutColor,
                     fontColor: fontColor

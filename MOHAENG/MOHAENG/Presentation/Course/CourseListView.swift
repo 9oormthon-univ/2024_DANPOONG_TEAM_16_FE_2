@@ -61,6 +61,3 @@ struct CourseListView: View {
     }
 }
 
-#Preview {
-    CourseResultView(isResultShowing: .constant(true))
-}
