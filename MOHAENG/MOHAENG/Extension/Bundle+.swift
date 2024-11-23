@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension Bundle {
     
@@ -31,6 +32,10 @@ extension Bundle {
     
     var DETAIL_URL: String? {
         return infoDictionary?["DETAIL_URL"] as? String
+    }
+    
+    var UUID: String {
+        return UIDevice.current.identifierForVendor!.uuidString
     }
     
 }
