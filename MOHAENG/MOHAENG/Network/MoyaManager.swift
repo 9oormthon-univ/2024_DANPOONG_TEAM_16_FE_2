@@ -31,13 +31,13 @@ final class MoyaManager {
         }
     }
     
-    func idToCourse(number: Int, completion: @escaping (Result<[CourseListDTO], Error>) -> Void) {
+    func idToCourse(number: Int, completion: @escaping (Result<CourseDTO, Error>) -> Void) {
         provider.request(.getCourse(number: number)) { result in
             switch result {
             case .success(let response):
                 do {
                     let decoder = JSONDecoder()
-                    let jsonData = try decoder.decode([CourseListDTO].self, from: response.data)
+                    let jsonData = try decoder.decode(CourseDTO.self, from: response.data)
                     
                     completion(.success(jsonData))
                 } catch {

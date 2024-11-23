@@ -37,7 +37,7 @@ extension NetworkManager: TargetType {
         case .getCourseList(let UUID):
             return "api/v1/user/\(UUID)/course"
         case .getCourse(let number):
-            return "/api/v1/course/search/\(number)"
+            return "api/v1/course/search/\(number)"
         case .getUserExist(UUID: _):
             return "api/v1/user/exist"
         case .postUserRegister(UUID: _):
