@@ -11,6 +11,9 @@ import KakaoMapsSDK
 struct MapView: UIViewRepresentable {
     
     @Binding var draw: Bool
+    @Binding var gpsY: Double?
+    @Binding var gpsX: Double?
+    @Binding var list: [Course]
     
     func makeUIView(context: Self.Context) -> KMViewContainer {
         let view: KMViewContainer = KMViewContainer()
@@ -27,6 +30,9 @@ struct MapView: UIViewRepresentable {
                 try? await Task.sleep(for: .seconds(0.5))
                 context.coordinator.controller?.activateEngine()
                 context.coordinator.controller?.prepareEngine()
+                
+                context.coordinator.updatePois(placeList: list, gpsY: gpsY, gpsX: gpsX)
+                context.coordinator.updateRouteLine()
             }
         } else {
             context.coordinator.controller?.resetEngine()
