@@ -13,8 +13,18 @@ enum NetworkManager {
     case getWeather(lat: Double, lon: Double)
     case getCourseList(UUID: String)
     case getCourse(number: Int)
+    case patchCourse(number: Int, UUID: String, name: String, date: String)
     case getUserExist(UUID: String)
     case postUserRegister(UUID: String)
+    
+}
+
+struct PatchCourseParams: Encodable {
+    
+    let courseNumber: Int
+    let uuid: String
+    let courseName: String
+    let startDate: String
     
 }
 
@@ -38,6 +48,8 @@ extension NetworkManager: TargetType {
             return "api/v1/user/\(UUID)/course"
         case .getCourse(let number):
             return "api/v1/course/search/\(number)"
+        case .patchCourse(number: _, UUID: _, name: _, date: _):
+            return "api/v1/course"
         case .getUserExist(UUID: _):
             return "api/v1/user/exist"
         case .postUserRegister(UUID: _):
@@ -49,6 +61,8 @@ extension NetworkManager: TargetType {
         switch self {
         case .postUserRegister(UUID: _):
             return .post
+        case .patchCourse(number: _, UUID: _, name: _, date: _):
+            return .patch
         default:
             return .get
         }
@@ -77,6 +91,11 @@ extension NetworkManager: TargetType {
             let params: [String: String] = [
                 "uuid": UUID
             ]
+            
+            return .requestJSONEncodable(params)
+            
+        case let .patchCourse(number, UUID, name, date):
+            let params = PatchCourseParams(courseNumber: number, uuid: UUID, courseName: name, startDate: date)
             
             return .requestJSONEncodable(params)
 

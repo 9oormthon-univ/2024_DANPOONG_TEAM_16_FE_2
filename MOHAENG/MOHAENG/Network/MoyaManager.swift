@@ -49,6 +49,24 @@ final class MoyaManager {
         }
     }
     
+    func patchToCourse(number: Int, UUID: String, name: String, date: String, completion: @escaping (Result<CourseDTO, Error>) -> Void) {
+        provider.request(.patchCourse(number: number, UUID: UUID, name: name, date: date)) { result in
+            switch result {
+            case .success(let response):
+                do {
+                    let decoder = JSONDecoder()
+                    let jsonData = try decoder.decode(CourseDTO.self, from: response.data)
+                    
+                    completion(.success(jsonData))
+                } catch {
+                    completion(.failure(error))
+                }
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
     func coordinateToList(lat: Double, lon: Double, completion: @escaping (Result<WeatherDTO, Error>) -> Void) {
         provider.request(.getWeather(lat: lat, lon: lon)) { result in
             switch result {
