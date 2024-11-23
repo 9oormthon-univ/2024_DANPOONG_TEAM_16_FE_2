@@ -14,7 +14,25 @@ final class MoyaManager {
     let provider: MoyaProvider = MoyaProvider<NetworkManager>()
     
     func uuidToList(UUID: String, completion: @escaping (Result<[CourseListDTO], Error>) -> Void) {
-        provider.request(.getCourse(UUID: UUID)) { result in
+        provider.request(.getCourseList(UUID: UUID)) { result in
+            switch result {
+            case .success(let response):
+                do {
+                    let decoder = JSONDecoder()
+                    let jsonData = try decoder.decode([CourseListDTO].self, from: response.data)
+                    
+                    completion(.success(jsonData))
+                } catch {
+                    completion(.failure(error))
+                }
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func idToCourse(number: Int, completion: @escaping (Result<[CourseListDTO], Error>) -> Void) {
+        provider.request(.getCourse(number: number)) { result in
             switch result {
             case .success(let response):
                 do {
