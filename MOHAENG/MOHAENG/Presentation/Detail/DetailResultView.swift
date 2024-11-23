@@ -9,6 +9,9 @@ import SwiftUI
 
 struct DetailResultView: View {
     
+    private var course: [CourseDTO] = []
+    @Binding var courseNumber: Int?
+    
     @State private var draw: Bool = true
     
     @Binding var isDetailShowing: Bool
@@ -16,6 +19,11 @@ struct DetailResultView: View {
     @State private var offset: CGFloat = 0
     @State private var lastOffset: CGFloat = 0
     @GestureState var gestureOffset: CGFloat = 0
+    
+    init(courseNumber: Binding<Int?>, isDetailShowing: Binding<Bool>) {
+        self._courseNumber = courseNumber
+        self._isDetailShowing = isDetailShowing
+    }
     
     var body: some View {
         ZStack {
@@ -26,7 +34,7 @@ struct DetailResultView: View {
                 .onDisappear{
                     self.draw = false
                 }
-                .frame(width: .infinity, height: .infinity)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .ignoresSafeArea()
             Button {
                 self.isDetailShowing.toggle()
@@ -64,16 +72,32 @@ struct DetailResultView: View {
                 )
             }
         }
+        .onAppear(perform: {
+            if let number = self.courseNumber {
+                setCourse(number: number)
+            }
+        })
     }
     
 }
 
-extension DetailResultView {
+private extension DetailResultView {
     
-    private func onBottomSheetChange() {
+    func onBottomSheetChange() {
         Task {
             await MainActor.run {
                 self.offset = gestureOffset + lastOffset
+            }
+        }
+    }
+    
+    func setCourse(number: Int) {
+        MoyaManager.shared.idToCourse(number: number) { result in
+            switch result {
+            case .success(let data):
+                dump(data)
+            case .failure(let error):
+                dump(error.localizedDescription)
             }
         }
     }

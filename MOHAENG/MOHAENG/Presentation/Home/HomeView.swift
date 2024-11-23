@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     
     @State private var courseList: [CourseListDTO] = []
+    @State private var selectedCourseNumber: Int?
     
     @State var isOnboarding: Bool = false
     @State var isResultShowing: Bool = false
@@ -46,6 +47,7 @@ struct HomeView: View {
                 ForEach(courseList, id: \.self) { course in
                     Button {
                         self.isDetailShowing.toggle()
+                        self.selectedCourseNumber = course.courseNumber
                     } label: {
                         HomeCourseView(course: course)
                             .background(.white)
@@ -74,7 +76,10 @@ struct HomeView: View {
             CourseResultView(isResultShowing: $isResultShowing)
         })
         .fullScreenCover(isPresented: $isDetailShowing, content: {
-            DetailResultView(isDetailShowing: $isDetailShowing)
+            DetailResultView(
+                courseNumber: $selectedCourseNumber,
+                isDetailShowing: $isDetailShowing
+            )
         })
         .transaction { transaction in
             transaction.disablesAnimations = true
