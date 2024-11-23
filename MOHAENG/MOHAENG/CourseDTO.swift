@@ -24,6 +24,10 @@ struct CourseDTO: Codable, Hashable {
 
 struct Course: Codable, Hashable {
     
+    var gpsX: Double
+    var gpsY: Double
+    var contentId: Int
+    var contentTypeId: Int
     var name: String
     var address: String
     var imageUrl: String

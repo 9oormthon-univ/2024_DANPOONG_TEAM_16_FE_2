@@ -18,10 +18,7 @@ struct CourseListView: View {
     
     @State private var selectedList: [Course] = []
     
-    @State private var numbers: [Course] = [
-        Course(name: "1", address: "2", imageUrl: "3"),
-        Course(name: "4", address: "5", imageUrl: "6")
-    ]
+    @State private var numbers: [Course] = []
     @State private var isWebViewShowing: Bool = false
     
     init(
