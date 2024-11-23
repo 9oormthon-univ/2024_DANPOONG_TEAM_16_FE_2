@@ -14,5 +14,7 @@ struct CourseListDTO: Codable, Hashable {
     let area: String
     let startDate: String
     let endDate: String
+    let period: Int
+    let originalImage: String
     
 }

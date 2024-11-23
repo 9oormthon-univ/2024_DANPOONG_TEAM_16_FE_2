@@ -17,21 +17,41 @@ struct HomeCourseView: View {
     
     var body: some View {
         HStack {
-            Image(uiImage: .mountain)
-                .padding()
+            if let url = URL(string: course.originalImage) {
+                AsyncImage(url: url) { image in
+                    image.image?.resizable()
+                }
+                .frame(maxWidth: 70, maxHeight: 80)
+                .cornerRadius(4)
+                .background(Color(.white))
+                .clipped()
+            } else {
+                Image(uiImage: .placeholder)
+                    .resizable()
+                    .cornerRadius(4)
+                    .frame(maxWidth: 70, maxHeight: 80)
+                    .background(Color(hex: "#F6F5FA"))
+                    .clipped()
+            }
             
             VStack(alignment: .leading, content: {
                 Text("\(course.courseName)")
                     .font(.system(size: 18, weight: .semibold))
                     .foregroundColor(.black)
                 Text("\(course.area)")
-                    .font(.system(size: 14, weight: .medium))
+                    .font(.system(size: 12, weight: .medium))
                     .foregroundColor(Color(hex: "#676767"))
                     .padding(.top, 1)
-                Text("\(course.startDate)~\(course.endDate)")
-                    .font(.system(size: 14, weight: .medium))
-                    .foregroundColor(.black)
+                HStack {
+                    Text("\(course.startDate)~\(course.endDate)")
+                        .font(.system(size: 12, weight: .medium))
+                        .foregroundColor(.black)
+                    Text("[\(course.period)박\(course.period + 1)일]")
+                        .font(.system(size: 12, weight: .medium))
+                        .foregroundColor(.black)
+                }
             })
+            .padding(.leading, 10)
             
             Spacer()
             
@@ -40,8 +60,4 @@ struct HomeCourseView: View {
         }
         .padding()
     }
-}
-
-#Preview {
-    HomeCourseView(course: CourseListDTO(courseNumber: 1, courseName: "서울 여행 코스", area: "서울", startDate: "2024-12-01", endDate: "2024-12-04"))
 }
