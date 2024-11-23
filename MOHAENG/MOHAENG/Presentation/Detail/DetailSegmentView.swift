@@ -39,7 +39,9 @@ struct DetailSegmentView: View {
             }
             
             if activeTab == .course {
-                DetailCourseView(course: $course, selectedList: $selectedList, selectedNumber: $selectedNumber)
+                ScrollView {
+                    DetailCourseView(course: $course, selectedList: $selectedList, selectedNumber: $selectedNumber)
+                }
             } else if activeTab == .weather {
                 DetailWeatherView()
             }
