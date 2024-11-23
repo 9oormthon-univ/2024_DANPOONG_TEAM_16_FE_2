@@ -198,10 +198,11 @@ extension KakaoMapCoordinator {
     func routeSegmentPoints(list: [MapPoint]) -> [[MapPoint]] {
         
         var segmentPoints: [[MapPoint]] = []
-        
-        for index in 0..<list.count - 1 {
-            let segment = [list[index], list[index + 1]]
-            segmentPoints.append(segment)
+        if list.count > 1 {
+            for index in 0..<list.count - 1 {
+                let segment = [list[index], list[index + 1]]
+                segmentPoints.append(segment)
+            }
         }
         
         return segmentPoints
