@@ -9,16 +9,16 @@ import SwiftUI
 
 struct HomeView: View {
     
+    @State private var courseList: [CourseListDTO] = []
+    
     @State var isOnboarding: Bool = false
     @State var isResultShowing: Bool = false
     @State var isDetailShowing: Bool = false
     
     private let semiboldFontSize: CGFloat = 20
     
-    @State private var courseList: [String] = ["1", "2", "3"]
-    
     var body: some View {
-        VStack {
+        ScrollView {
             Image(uiImage: .title)
             
             ZStack {
@@ -43,30 +43,26 @@ struct HomeView: View {
             if courseList.isEmpty {
                 Image(uiImage: .placeholder)
             } else {
-                List {
-                    ForEach(courseList, id: \.self) { course in
-                        Button {
-                            //TODO: 코스로 이동
-                        } label: {
-                            HomeCourseView()
-                                .background(.white)
-                                .cornerRadius(15)
-                                .shadow(radius: 3)
-                        }
-                        .listRowSeparator(.hidden)
-                    }
-                    .onDelete(perform: { indexSet in
-                        courseList.remove(atOffsets: indexSet)
-                    })
-                    .onMove(perform: { indices, newOffset in
-                        courseList.move(fromOffsets: indices, toOffset: newOffset)
-                    })
-                    .onTapGesture {
+                ForEach(courseList, id: \.self) { course in
+                    Button {
                         self.isDetailShowing.toggle()
+                    } label: {
+                        HomeCourseView()
+                            .background(.white)
+                            .cornerRadius(15)
+                            .shadow(radius: 0.5)
                     }
+                    .listRowSeparator(.hidden)
                 }
-                .listStyle(PlainListStyle())
-                .scrollIndicators(.hidden)
+                .onDelete(perform: { indexSet in
+                    courseList.remove(atOffsets: indexSet)
+                })
+                .onMove(perform: { indices, newOffset in
+                    courseList.move(fromOffsets: indices, toOffset: newOffset)
+                })
+                .padding(.top, 10)
+                .padding(.leading)
+                .padding(.trailing)
             }
             
             Spacer()
@@ -95,7 +91,7 @@ private extension HomeView {
         MoyaManager.shared.uuidToList(UUID: Bundle.main.UUID) { result in
             switch result {
             case .success(let data):
-                dump(data)
+                self.courseList = data
             case .failure(let error):
                 dump(error.localizedDescription)
             }
