@@ -39,7 +39,3 @@ struct DetailCourseView: View {
         }
     }
 }
-
-#Preview {
-    DetailCourseView()
-}
