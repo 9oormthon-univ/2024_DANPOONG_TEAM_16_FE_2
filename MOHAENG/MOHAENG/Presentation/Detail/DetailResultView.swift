@@ -10,6 +10,9 @@ import SwiftUI
 struct DetailResultView: View {
     
     @State private var course: CourseDTO = CourseDTO(courseNumber: 1, courseName: "1", area: "서울", startDate: "2024/11/23", endDate: "2024/11/24", period: 2, disability: [], gpsX: 38.4, gpsY: 123.4, day1: [], day2: [], day3: [])
+    @State private var selectedList: [Course] = []
+    @State private var selectedNumber: Int = 1
+    
     @Binding var courseNumber: Int?
     
     @State private var draw: Bool = true
@@ -31,7 +34,7 @@ struct DetailResultView: View {
                 draw: $draw,
                 gpsY: $course.gpsY,
                 gpsX: $course.gpsX,
-                list: $course.day1
+                list: $selectedList
             )
             .onAppear {
                 self.draw = true
@@ -62,7 +65,13 @@ struct DetailResultView: View {
                 let height = proxy.frame(in: .global).height - 100
                 
                 AnyView(
-                    DetailBottomSheetView(offset: $offset, course: $course, height: height)
+                    DetailBottomSheetView(
+                        offset: $offset, 
+                        course: $course,
+                        selectedList: $selectedList,
+                        selectedNumber: $selectedNumber,
+                        height: height
+                    )
                         .offset(y: height)
                         .offset(y: -offset > 0 ? -offset <= height ? offset : -height : 0)
                         .gesture(DragGesture().updating($gestureOffset, body: { value, out, _ in
@@ -91,6 +100,9 @@ struct DetailResultView: View {
                 setCourse(number: number)
             }
         })
+        .onChange(of: self.selectedList) { oldValue, newValue in
+            dump(newValue)
+        }
     }
     
 }
@@ -110,6 +122,7 @@ private extension DetailResultView {
             switch result {
             case .success(let data):
                 self.course = data
+                self.selectedList = data.day1
             case .failure(let error):
                 dump(error.localizedDescription)
             }

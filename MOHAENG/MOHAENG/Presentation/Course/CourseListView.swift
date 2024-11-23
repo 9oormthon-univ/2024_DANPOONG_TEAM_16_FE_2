@@ -16,7 +16,8 @@ struct CourseListView: View {
     @Binding var dayTwoList: [Course]
     @Binding var dayThreeList: [Course]
     
-    @State private var selectedList: [Course] = []
+    @Binding var selectedList: [Course]
+    @Binding var selectedNumber: Int
     
     @State private var numbers: [Course] = []
     @State private var isWebViewShowing: Bool = false
@@ -26,13 +27,17 @@ struct CourseListView: View {
         selectedDay: Binding<Int>,
         dayOneList: Binding<[Course]>,
         dayTwoList: Binding<[Course]>,
-        dayThreeList: Binding<[Course]>
+        dayThreeList: Binding<[Course]>,
+        selectedList: Binding<[Course]>,
+        selectedNumber: Binding<Int>
     ) {
         self._course = course
         self._selectedDay = selectedDay
         self._dayOneList = dayOneList
         self._dayTwoList = dayTwoList
         self._dayThreeList = dayThreeList
+        self._selectedList = selectedList
+        self._selectedNumber = selectedNumber
     }
     
     var body: some View {
@@ -75,7 +80,7 @@ struct CourseListView: View {
         .onTapGesture {
             self.isWebViewShowing.toggle()
         }
-        .onChange(of: selectedDay) { _, newValue in
+        .onChange(of: selectedNumber) { _, newValue in
             if newValue == 1 {
                 selectedList = dayOneList
             } else if newValue == 2 {

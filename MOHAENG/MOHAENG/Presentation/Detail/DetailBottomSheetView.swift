@@ -11,11 +11,13 @@ struct DetailBottomSheetView: View {
     
     @Binding var offset: CGFloat
     @Binding var course: CourseDTO
+    @Binding var selectedList: [Course]
+    @Binding var selectedNumber: Int
     let height: CGFloat
     
     var body: some View {
         ZStack {
-            DetailSegmentView(course: $course)
+            DetailSegmentView(course: $course, selectedList: $selectedList, selectedNumber: $selectedNumber)
                 .clipShape(CustomCorner(corners: [.topLeft, .topRight], radius: 30))
             
             VStack {

@@ -11,6 +11,8 @@ struct DetailSegmentView: View {
     
     @State private var activeTab: SegmentedTab = .course
     @Binding var course: CourseDTO
+    @Binding var selectedList: [Course]
+    @Binding var selectedNumber: Int
     
     var body: some View {
         NavigationStack {
@@ -37,7 +39,7 @@ struct DetailSegmentView: View {
             }
             
             if activeTab == .course {
-                DetailCourseView(course: $course)
+                DetailCourseView(course: $course, selectedList: $selectedList, selectedNumber: $selectedNumber)
             } else if activeTab == .weather {
                 DetailWeatherView()
             }
