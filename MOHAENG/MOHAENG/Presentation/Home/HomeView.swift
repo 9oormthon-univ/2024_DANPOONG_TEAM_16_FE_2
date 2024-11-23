@@ -16,6 +16,8 @@ struct HomeView: View {
     @State var isResultShowing: Bool = false
     @State var isDetailShowing: Bool = false
     
+    @State var courseNumber: Int = 0
+    
     private let semiboldFontSize: CGFloat = 20
     
     var body: some View {
@@ -27,7 +29,7 @@ struct HomeView: View {
                 Image(uiImage: .create)
                     .resizable()
                 Button {
-                    self.isOnboarding.toggle()
+                    self.isResultShowing.toggle()
                 } label: {
                     Text("코스 만들기")
                 }
@@ -75,7 +77,7 @@ struct HomeView: View {
             OnboardingView(isOnboarding: $isOnboarding)
         })
         .fullScreenCover(isPresented: $isResultShowing, content: {
-            CourseResultView(isResultShowing: $isResultShowing)
+            CourseResultView(isResultShowing: $isResultShowing, courseNumber: $courseNumber)
         })
         .fullScreenCover(isPresented: $isDetailShowing, content: {
             DetailResultView(
@@ -99,6 +101,15 @@ private extension HomeView {
             switch result {
             case .success(let data):
                 self.courseList = data
+            case .failure(let error):
+                dump(error.localizedDescription)
+            }
+        }
+        
+        MoyaManager.shared.patchToCourse(number: 14, UUID: Bundle.main.UUID, name: "야호호호", date: "2024-12-24") { result in
+            switch result {
+            case .success(let data):
+                dump(data)
             case .failure(let error):
                 dump(error.localizedDescription)
             }
