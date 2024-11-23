@@ -50,7 +50,7 @@ struct DetailResultView: View {
                         self.isDetailShowing.toggle()
                     } label: {
                         Image(uiImage: .back)
-                            .frame(width: 44, height: 44) 
+                            .frame(width: 44, height: 44)
                             .contentShape(Rectangle())
                     }
                     .padding(.top, 20)
@@ -100,9 +100,6 @@ struct DetailResultView: View {
                 setCourse(number: number)
             }
         })
-        .onChange(of: self.selectedList) { oldValue, newValue in
-            dump(newValue)
-        }
     }
     
 }

@@ -109,8 +109,6 @@ extension KakaoMapCoordinator {
         self.placeList = placeList
         self.userMapPoint = MapPoint(longitude: gpsX, latitude: gpsY)
         
-        dump(placeList)
-        
         let manager = view.getLabelManager()
         let layer = manager.getLabelLayer(layerID: "PoiLayer")
         
