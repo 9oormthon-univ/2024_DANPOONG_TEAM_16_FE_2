@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F0989972CF1B300008830BF /* CourseListDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0989962CF1B300008830BF /* CourseListDTO.swift */; };
+		8F0989992CF1C00D008830BF /* CourseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0989982CF1C00D008830BF /* CourseDTO.swift */; };
 		8F13DDCE2CEDA0BE00CE488D /* DetailNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F13DDCD2CEDA0BE00CE488D /* DetailNotificationView.swift */; };
 		8F13DDD12CEF047800CE488D /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F13DDD02CEF047800CE488D /* Weather.swift */; };
 		8F13DDD42CEF08DD00CE488D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F13DDD32CEF08DD00CE488D /* HomeView.swift */; };
@@ -47,6 +49,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8F0989962CF1B300008830BF /* CourseListDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseListDTO.swift; sourceTree = "<group>"; };
+		8F0989982CF1C00D008830BF /* CourseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDTO.swift; sourceTree = "<group>"; };
 		8F13DDCD2CEDA0BE00CE488D /* DetailNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNotificationView.swift; sourceTree = "<group>"; };
 		8F13DDD02CEF047800CE488D /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		8F13DDD32CEF08DD00CE488D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -105,6 +109,8 @@
 			children = (
 				8F13DDD02CEF047800CE488D /* Weather.swift */,
 				8F13DDE92CF03FEE00CE488D /* WeatherDTO.swift */,
+				8F0989962CF1B300008830BF /* CourseListDTO.swift */,
+				8F0989982CF1C00D008830BF /* CourseDTO.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -328,10 +334,12 @@
 			files = (
 				8F13DDCE2CEDA0BE00CE488D /* DetailNotificationView.swift in Sources */,
 				8F14B3B72CEB3C1E0080CACA /* CourseResultView.swift in Sources */,
+				8F0989992CF1C00D008830BF /* CourseDTO.swift in Sources */,
 				8F648C412CEC782F0045BDDC /* DetailCourseView.swift in Sources */,
 				8F648C482CEC7DCE0045BDDC /* DetailSegmentView.swift in Sources */,
 				8F648C302CEB58AE0045BDDC /* Color+.swift in Sources */,
 				8F13DDD42CEF08DD00CE488D /* HomeView.swift in Sources */,
+				8F0989972CF1B300008830BF /* CourseListDTO.swift in Sources */,
 				8F648C4A2CEC88F50045BDDC /* DetailTitleView.swift in Sources */,
 				8F60329A2CEB33C5000D2B55 /* Bundle+.swift in Sources */,
 				8F13DDF82CF0DF4900CE488D /* CourseWebView.swift in Sources */,
@@ -509,9 +517,13 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "https---github.com-jea0716.MOHAENG";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -541,9 +553,13 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "https---github.com-jea0716.MOHAENG";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
