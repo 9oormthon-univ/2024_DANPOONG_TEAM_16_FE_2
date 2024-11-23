@@ -79,7 +79,6 @@ struct CourseListView: View {
             self.isWebViewShowing.toggle()
         }
         .onChange(of: selectedDay) { _, newValue in
-            dump(course)
             if newValue == 1 {
                 selectedList = dayOneList
             } else if newValue == 2 {
