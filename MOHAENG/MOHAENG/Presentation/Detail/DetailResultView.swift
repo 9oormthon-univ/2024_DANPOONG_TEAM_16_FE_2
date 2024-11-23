@@ -89,7 +89,7 @@ struct DetailResultView: View {
                         }))
                         .edgesIgnoringSafeArea(.bottom)
                         .onAppear {
-                            self.offset = -(height / 3)
+                            self.offset = -height
                             lastOffset = offset
                         }
                 )

@@ -39,8 +39,7 @@ struct CourseResultView: View {
                                 Button {
                                     self.isResultShowing.toggle()
                                 } label: {
-                                    Image(systemName: "chevron.backward")
-                                        .foregroundColor(Color(.label))
+                                    Image(uiImage: .back)
                                 }
                                 Spacer()
                             }

@@ -24,7 +24,8 @@ struct HomeView: View {
                 .padding(.top, 20)
             
             ZStack {
-                Image(uiImage: .createButton)
+                Image(uiImage: .create)
+                    .resizable()
                 Button {
                     self.isOnboarding.toggle()
                 } label: {
