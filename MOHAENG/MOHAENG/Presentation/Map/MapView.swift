@@ -11,8 +11,8 @@ import KakaoMapsSDK
 struct MapView: UIViewRepresentable {
     
     @Binding var draw: Bool
-    @Binding var gpsY: Double?
-    @Binding var gpsX: Double?
+    @Binding var gpsY: Double
+    @Binding var gpsX: Double
     @Binding var list: [Course]
     
     func makeUIView(context: Self.Context) -> KMViewContainer {
