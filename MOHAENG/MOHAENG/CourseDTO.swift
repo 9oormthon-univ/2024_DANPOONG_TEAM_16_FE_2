@@ -16,16 +16,16 @@ struct CourseDTO: Codable, Hashable {
     let endDate: String
     let period: Int
     let disability: [Int]
-    let day1: [Course]
-    let day2: [Course]
-    let day3: [Course]
+    var day1: [Course]
+    var day2: [Course]
+    var day3: [Course]
     
 }
 
 struct Course: Codable, Hashable {
     
-    let name: String
-    let address: String
-    let imageUrl: String
+    var name: String
+    var address: String
+    var imageUrl: String
     
 }
