@@ -16,8 +16,8 @@ struct CourseDTO: Codable, Hashable {
     let endDate: String
     let period: Int
     let disability: [Int]
-    let gpsX: Double
-    let gpsY: Double
+    var gpsX: Double
+    var gpsY: Double
     var day1: [Course]
     var day2: [Course]
     var day3: [Course]
