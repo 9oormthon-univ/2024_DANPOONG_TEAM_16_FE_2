@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DetailResultView: View {
     
-    @State private var course: CourseDTO?
+    @State private var course: CourseDTO = CourseDTO(courseNumber: 1, courseName: "1", area: "서울", startDate: "2024/11/23", endDate: "2024/11/24", period: 2, disability: [], day1: [], day2: [], day3: [])
     @Binding var courseNumber: Int?
     
     @State private var draw: Bool = true

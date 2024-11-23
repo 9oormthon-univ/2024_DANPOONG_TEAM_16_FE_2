@@ -10,7 +10,7 @@ import SwiftUI
 struct DetailSegmentView: View {
     
     @State private var activeTab: SegmentedTab = .course
-    @Binding var course: CourseDTO?
+    @Binding var course: CourseDTO
     
     var body: some View {
         NavigationStack {

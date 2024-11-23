@@ -10,7 +10,7 @@ import SwiftUI
 struct DetailBottomSheetView: View {
     
     @Binding var offset: CGFloat
-    @Binding var course: CourseDTO?
+    @Binding var course: CourseDTO
     let height: CGFloat
     
     var body: some View {
