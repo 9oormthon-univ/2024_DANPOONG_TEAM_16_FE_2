@@ -52,7 +52,3 @@ enum SegmentedTab: String, CaseIterable {
     case weather = "날씨"
     
 }
-
-#Preview {
-    DetailResultView(isDetailShowing: .constant(true))
-}

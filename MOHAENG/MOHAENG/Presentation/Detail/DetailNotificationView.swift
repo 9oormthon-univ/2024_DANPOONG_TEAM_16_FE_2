@@ -46,7 +46,3 @@ struct DetailNotificationView: View {
         .clipShape(RoundedRectangle(cornerRadius: 10))
     }
 }
-
-#Preview {
-    DetailResultView(isDetailShowing: .constant(true))
-}

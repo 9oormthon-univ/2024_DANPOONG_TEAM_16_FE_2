@@ -79,7 +79,3 @@ extension DetailResultView {
     }
  
 }
-
-#Preview {
-    DetailResultView(isDetailShowing: .constant(true))
-}

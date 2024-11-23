@@ -31,7 +31,3 @@ struct DetailBottomSheetView: View {
     }
     
 }
-
-#Preview {
-    DetailResultView(isDetailShowing: .constant(true))
-}

@@ -51,7 +51,3 @@ struct DetailTitleView: View {
         .padding()
     }
 }
-
-#Preview {
-    DetailResultView(isDetailShowing: .constant(true))
-}
