@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DetailResultView: View {
     
-    private var course: [CourseDTO] = []
+    @State private var course: CourseDTO?
     @Binding var courseNumber: Int?
     
     @State private var draw: Bool = true
@@ -48,7 +48,7 @@ struct DetailResultView: View {
                 let height = proxy.frame(in: .global).height - 100
                 
                 AnyView(
-                    DetailBottomSheetView(offset: $offset, height: height)
+                    DetailBottomSheetView(offset: $offset, course: $course, height: height)
                         .offset(y: height)
                         .offset(y: -offset > 0 ? -offset <= height ? offset : -height : 0)
                         .gesture(DragGesture().updating($gestureOffset, body: { value, out, _ in
@@ -95,7 +95,7 @@ private extension DetailResultView {
         MoyaManager.shared.idToCourse(number: number) { result in
             switch result {
             case .success(let data):
-                dump(data)
+                self.course = data
             case .failure(let error):
                 dump(error.localizedDescription)
             }

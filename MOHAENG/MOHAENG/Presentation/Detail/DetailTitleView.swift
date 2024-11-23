@@ -13,6 +13,7 @@ struct DetailTitleView: View {
     private let place = "카카오 AI 캠퍼스"
     private let start = "2024/11/23"
     private let end = "2024/11/25"
+    @Binding var course: CourseDTO?
     
     private let titleFontSize: CGFloat = 24
     private let fontSize: CGFloat = 16

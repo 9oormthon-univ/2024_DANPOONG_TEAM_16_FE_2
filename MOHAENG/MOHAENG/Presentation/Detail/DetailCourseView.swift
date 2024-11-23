@@ -9,6 +9,8 @@ import SwiftUI
 
 struct DetailCourseView: View {
     
+    @Binding var course: CourseDTO?
+    
     @State var selectedDay: Int = 0
     
     private let daysList: [String] = ["1일차", "2일차", "3일차"]

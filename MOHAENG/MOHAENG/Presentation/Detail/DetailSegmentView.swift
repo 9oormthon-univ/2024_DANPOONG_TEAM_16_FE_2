@@ -10,10 +10,11 @@ import SwiftUI
 struct DetailSegmentView: View {
     
     @State private var activeTab: SegmentedTab = .course
+    @Binding var course: CourseDTO?
     
     var body: some View {
         NavigationStack {
-            DetailTitleView()
+            DetailTitleView(course: $course)
                 .padding(.top, 50)
             
             VStack(spacing: 15) {
@@ -36,7 +37,7 @@ struct DetailSegmentView: View {
             }
             
             if activeTab == .course {
-                DetailCourseView()
+                DetailCourseView(course: $course)
             } else if activeTab == .weather {
                 DetailWeatherView()
             }
