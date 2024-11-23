@@ -83,7 +83,25 @@ struct HomeView: View {
         .transaction { transaction in
             transaction.disablesAnimations = true
         }
+        .onAppear(perform: {
+            setCourseList()
+        })
     }
+}
+
+private extension HomeView {
+    
+    func setCourseList() {
+        MoyaManager.shared.uuidToList(UUID: Bundle.main.UUID) { result in
+            switch result {
+            case .success(let data):
+                dump(data)
+            case .failure(let error):
+                dump(error.localizedDescription)
+            }
+        }
+    }
+    
 }
 
 #Preview {
