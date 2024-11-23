@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CourseListDTO: Codable {
+struct CourseListDTO: Codable, Hashable {
     
     let courseNumber: Int
     let courseName: String
