@@ -8,15 +8,29 @@
 import SwiftUI
 
 struct HomeCourseView: View {
+    
+    private var course: CourseListDTO
+    
+    init(course: CourseListDTO) {
+        self.course = course
+    }
+    
     var body: some View {
         HStack {
-            Text("IMG")
+            Image(uiImage: .mountain)
                 .padding()
             
             VStack(alignment: .leading, content: {
-                Text("Title")
-                Text("Address")
-                Text("Address")
+                Text("\(course.courseName)")
+                    .font(.system(size: 18, weight: .semibold))
+                    .foregroundColor(.black)
+                Text("\(course.area)")
+                    .font(.system(size: 14, weight: .medium))
+                    .foregroundColor(Color(hex: "#676767"))
+                    .padding(.top, 1)
+                Text("\(course.startDate)~\(course.endDate)")
+                    .font(.system(size: 14, weight: .medium))
+                    .foregroundColor(.black)
             })
             
             Spacer()
@@ -29,5 +43,5 @@ struct HomeCourseView: View {
 }
 
 #Preview {
-    HomeCourseView()
+    HomeCourseView(course: CourseListDTO(courseNumber: 1, courseName: "서울 여행 코스", area: "서울", startDate: "2024-12-01", endDate: "2024-12-04"))
 }

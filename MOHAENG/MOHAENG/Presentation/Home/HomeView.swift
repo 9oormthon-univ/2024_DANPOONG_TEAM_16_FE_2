@@ -47,7 +47,7 @@ struct HomeView: View {
                     Button {
                         self.isDetailShowing.toggle()
                     } label: {
-                        HomeCourseView()
+                        HomeCourseView(course: course)
                             .background(.white)
                             .cornerRadius(15)
                             .shadow(radius: 0.5)
