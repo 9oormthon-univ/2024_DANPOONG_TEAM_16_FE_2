@@ -9,10 +9,6 @@ import SwiftUI
 
 struct DetailTitleView: View {
     
-    private let title = "단풍톤 워크샵"
-    private let place = "카카오 AI 캠퍼스"
-    private let start = "2024/11/23"
-    private let end = "2024/11/25"
     @Binding var course: CourseDTO?
     
     private let titleFontSize: CGFloat = 24
@@ -25,20 +21,20 @@ struct DetailTitleView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(height: 30)
-                Text(title)
+                Text(course?.courseName ?? "")
                     .font(.system(size: titleFontSize, weight: .semibold))
                 HStack {
                     Image(uiImage: .mapPin)
                         .resizable()
                         .frame(width: 20, height: 20)
-                    Text(place)
+                    Text(course?.area ?? "")
                         .font(.system(size: fontSize))
                 }
                 HStack {
                     Image(uiImage: .calendar)
                         .resizable()
                         .frame(width: 20, height: 20)
-                    Text("\(start) - \(end)")
+                    Text("\(course?.startDate ?? "") - \(course?.endDate ?? "")")
                             .font(.system(size: fontSize))
                 }
                 
