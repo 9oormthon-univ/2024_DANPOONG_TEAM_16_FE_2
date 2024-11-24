@@ -10,6 +10,7 @@ import SwiftUI
 struct CourseSaveView: View {
     
     @Binding var isSaving: Bool
+    @Binding var isResultShowing: Bool
     
     @State var text: String = ""
     @State private var date = Date()
@@ -67,7 +68,9 @@ struct CourseSaveView: View {
                 
                 HStack {
                     Button {
-                        
+                        patchCourse(text: $text)
+                        isSaving.toggle()
+                        isResultShowing.toggle()
                     } label: {
                         Text("저장")
                             .frame(maxWidth: .infinity, maxHeight: 55)
@@ -88,6 +91,17 @@ struct CourseSaveView: View {
     }
 }
 
-#Preview {
-    CourseSaveView(isSaving: .constant(true))
+private extension CourseSaveView {
+    
+    func patchCourse(text: Binding<String>) {
+        MoyaManager.shared.patchToCourse(number: 25, UUID: Bundle.main.UUID, name: text.wrappedValue, date: "2024-12-24") { result in
+            switch result {
+            case .success(let data):
+                dump(data)
+            case .failure(let error):
+                dump(error.localizedDescription)
+            }
+        }
+    }
+    
 }

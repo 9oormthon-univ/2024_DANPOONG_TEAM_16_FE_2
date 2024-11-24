@@ -113,7 +113,7 @@ struct CourseResultView: View {
             }
         }
         .fullScreenCover(isPresented: $isSaving, content: {
-            CourseSaveView(isSaving: $isSaving)
+            CourseSaveView(isSaving: $isSaving, isResultShowing: $isResultShowing)
         })
         .onAppear {
             setResult()
